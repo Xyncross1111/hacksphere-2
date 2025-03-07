@@ -36,12 +36,12 @@ export const About = () => {
   const features = [
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: "48 Hours of Coding",
+      title: "12 Hours of Coding",
       description: "Non-stop innovation and coding challenges in a space-themed environment"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "500+ Participants",
+      title: "25+ Teams",
       description: "Connect with fellow space enthusiasts and tech innovators"
     },
     {
