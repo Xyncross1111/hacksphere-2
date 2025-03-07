@@ -1,134 +1,138 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Calendar, Flag, Rocket, Trophy } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Timelineitem from './TimelineItem'
 
-export const Timeline = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  
-  // State for viewport dimensions
-  const [viewport, setViewport] = useState({ width: 1000, height: 800 });
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
-  // Update viewport dimensions on client side only
+// Define interface for timeline items
+interface TimelineItemData {
+  step: string;
+  number: number;
+  heading: string;
+  image: string;
+  description: string;
+}
+
+export const Timeline: React.FC = () => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  // Initialize window width after mount
   useEffect(() => {
-    setViewport({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
+    // Set initial width
+    setWindowWidth(window.innerWidth);
 
+    // Add resize listener
     const handleResize = () => {
-      setViewport({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
+      setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  const events = [
+  const timelineData: TimelineItemData[] = [
     {
-      icon: <Calendar className="w-6 h-6" />,
-      title: "Mission Preparation",
-      date: "March 1, 2024",
-      description: "Begin your cosmic journey"
+      step: "STEP ONE",
+      number: 1,
+      heading: "Meeting",
+      image: "/assets/meeting.webp",
+      description: "We start by gathering all relevant details about your business, target audience, color themes, and your expectations. This thorough understanding ensures that we align our vision with your goals."
     },
     {
-      icon: <Flag className="w-6 h-6" />,
-      title: "Launch Sequence",
-      date: "March 15, 2024",
-      description: "Ignition and liftoff into innovation"
+      step: "STEP TWO",
+      number: 2,
+      heading: "Brainstorming",
+      image: "/assets/brainstorming.webp",
+      description: "Based on the insights from our meeting, we engage in comprehensive brainstorming sessions. We consider fonts, design aesthetics, website structure, and user psychology to create a solid foundation for your website."
     },
     {
-      icon: <Rocket className="w-6 h-6" />,
-      title: "Orbital Insertion",
-      date: "March 15, 2024",
-      description: "48 hours of cosmic creation"
+      step: "STEP THREE",
+      number: 3,
+      heading: "Design & Prototyping",
+      image: "/assets/designing.webp",
+      description: "In the design phase, we create modern, professional, and relevant designs. Our focus is on delivering a clean, aesthetically pleasing interface without unnecessary elements, ensuring a seamless user experience."
     },
     {
-      icon: <Trophy className="w-6 h-6" />,
-      title: "Mission Completion",
-      date: "March 17, 2024",
-      description: "Showcase your stellar projects"
+      step: "STEP FOUR",
+      number: 4,
+      heading: "Developing",
+      image: "/assets/developing.webp",
+      description: "Finally, we bring the designs to life. Our development team writes clean, efficient code to build a responsive, functional, and bug-free website that meets all your requirements and exceeds your expectations."
     }
   ];
 
+  useGSAP(() => {
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".process-timeline",
+        start: "top 80%",
+        end: "top 75%",
+        scrub: 1,
+        fastScrollEnd: true,
+        preventOverlaps: true,
+      }
+    });
+
+    // Only run GSAP animations once the window width is properly initialized
+    if (windowWidth && windowWidth >= 1024) {
+      timeline.from(".timeline-progress-bar", {
+        opacity: 0,
+        height: "0%",
+      });
+
+      timelineData.forEach((item) => {
+        gsap.from(`.ti-${item.number}`, {
+          opacity: 0.4,
+          duration: 0.1,
+          scrollTrigger: {
+            trigger: `.timeline-trigger-${item.number}`,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: 1,
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          }
+        });
+      });
+    }
+  }, [windowWidth]); // Re-run when windowWidth changes
+
   return (
-    <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
-      {/* Animated stars - reduced count */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="star"
-            initial={{ opacity: 0.1, x: Math.random() * viewport.width, y: Math.random() * viewport.height }}
-            animate={{
-              opacity: [0.1, 0.5, 0.1],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 5,
-              repeat: Infinity,
-              ease: "linear"
-            }}
+    <section className="process-section text-center" id="process">
+      <div className="processsectionheading py-[10%] pb-[10vh] md:py-[10%] md:pb-[10vh] lg:py-[5%] bg-black">
+        <h2 className="inline font-[Nulshock] text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-center"
+          style={{
+            WebkitTextStroke: windowWidth <= 479 ? "0.7px #6e6e6e" : "1px #6e6e6e",
+            WebkitTextFillColor: "transparent",
+            textUnderlinePosition: "from-font",
+            textDecorationSkipInk: "none"
+          }}>
+          OUR PROCESS
+        </h2>
+      </div>
+      <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-20">
+        <div className="timeline-progress absolute w-[3px] h-full z-[-1] overflow-hidden left-[25px] md:left-auto" style={{ backgroundColor: "#33123a" }}>
+          <div className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
+        </div>
+
+        {timelineData.map((item, index) => (
+          <Timelineitem
+            key={index}
+            step={item.step}
+            number={item.number}
+            heading={item.heading}
+            image={item.image}
+            description={item.description}
           />
         ))}
       </div>
-
-      {/* Rest of the component remains the same */}
-      {/* Nebula effects - reduced opacity */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="nebula top-1/4 left-1/3 w-96 h-96" 
-          style={{ background: 'linear-gradient(45deg, #3b82f6, #9333ea)' }} />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.h2
-          initial={{ y: 50, opacity: 0 }}
-          animate={inView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-white text-center mb-16"
-          style={{
-            textShadow: '0 0 10px rgba(147, 51, 234, 0.5)'
-          }}
-        >
-          Mission Timeline
-        </motion.h2>
-
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-purple-500" />
-
-          {events.map((event, index) => (
-            <motion.div
-              key={index}
-              initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
-              animate={inView ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex items-center mb-12 ${
-                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-              }`}
-            >
-              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                <div className="cosmic-card p-6 hover:transform hover:-translate-y-2 transition-all duration-300">
-                  <div className="cosmic-glow"></div>
-                  <div className="text-purple-500 mb-2">
-                    {event.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">{event.title}</h3>
-                  <p className="text-purple-400 font-medium">{event.date}</p>
-                  <p className="text-gray-300 mt-2">{event.description}</p>
-                </div>
-              </div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
     </section>
-  );
-};
+  )
+}

@@ -9,8 +9,8 @@ export const Hero = () => {
   // State to store window dimensions
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 });
   // State to store star positions
-  const [stars, setStars] = useState<Array<{x: number, y: number}>>([]);
-  
+  const [stars, setStars] = useState<Array<{ x: number, y: number }>>([]);
+
   // Get window dimensions and calculate star positions on client-side only
   useEffect(() => {
     // Update dimensions
@@ -18,15 +18,15 @@ export const Hero = () => {
       width: window.innerWidth,
       height: window.innerHeight
     });
-    
+
     // Generate star positions
     const starPositions = [...Array(100)].map(() => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight
     }));
-    
+
     setStars(starPositions);
-    
+
     // Optional: Add resize handler if needed
     const handleResize = () => {
       setDimensions({
@@ -34,7 +34,7 @@ export const Hero = () => {
         height: window.innerHeight
       });
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -63,17 +63,11 @@ export const Hero = () => {
 
       {/* Nebula effects */}
       <div className="absolute inset-0">
-        <div className="nebula top-1/4 left-1/4 w-96 h-96" />
-        <div className="nebula bottom-1/4 right-1/4 w-96 h-96" 
+        <div className="nebula top-1/4 left-1/4 w-96 h-96 opacity-40" />
+        <div className="nebula bottom-1/4 right-1/4 w-96 h-96 opacity-40"
           style={{ background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)' }} />
       </div>
 
-      {/* Cosmic portal */}
-      <div className="absolute left-1/4 top-1/4 w-96 h-96 opacity-30">
-        <div className="cosmic-portal" />
-      </div>
-
-      {/* Rest of your component remains unchanged */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-white px-4">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
@@ -105,11 +99,8 @@ export const Hero = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-bold text-center"
+          className="text-6xl md:text-8xl font-bold text-center bg-gradient-to-r from-[#d44c4c] via-[#2e9e96] to-[#7452c8] text-transparent bg-clip-text"
           style={{
-            background: 'linear-gradient(to right, #ff6b6b, #4ecdc4, #9f7aea)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
             backgroundSize: '200% auto',
             animation: 'gradient 5s linear infinite',
           }}

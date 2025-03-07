@@ -1,20 +1,52 @@
+/*-------------------------------------------------------------------------
+  Imports & Tailwind setup
+-------------------------------------------------------------------------*/
 @import "tailwindcss";
-/* @tailwind base;
-@tailwind components; */
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap'); */
+
+/* Uncomment if you want to use Tailwind's base and components layers */
+/*
+@tailwind base;
+@tailwind components;
+*/
 @tailwind utilities;
 
+/*-------------------------------------------------------------------------
+  Global Variables & Base Styles
+-------------------------------------------------------------------------*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 
+html,body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Orbitron", Helvetica;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: fixed;
+}
+
+main {
+  flex: 1;
+  z-index: 1;
+}
+
+/*-------------------------------------------------------------------------
+  Dark Mode
+-------------------------------------------------------------------------*/
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -22,21 +54,19 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-@layer base {
+/*-------------------------------------------------------------------------
+  Tailwind Base Layer Overrides
+-------------------------------------------------------------------------*/
+/* @layer base {
   body {
     @apply bg-black text-white;
   }
-}
+} */
 
-/* Space theme styles */
+
+/*-------------------------------------------------------------------------
+  Space Theme Styles
+-------------------------------------------------------------------------*/
 .space-gradient {
   background: linear-gradient(to bottom, #0f0f1a, #1a1a2e, #0f0f1a);
 }
@@ -67,30 +97,21 @@ body {
   @apply opacity-100;
 }
 
-/* Devfolio button styles */
-.apply-button {
-  position: relative !important;
-  z-index: 10000 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
 
-.apply-button > div {
-  position: relative !important;
-  z-index: 10000 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Make sure Devfolio buttons are visible */
+/*-------------------------------------------------------------------------
+  Devfolio Button Styles
+-------------------------------------------------------------------------*/
+.apply-button,
+.apply-button > div,
 .apply-button iframe {
   position: relative !important;
   z-index: 10000 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
   display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.apply-button iframe {
   min-height: 44px !important;
   min-width: 312px !important;
 }
@@ -104,7 +125,10 @@ body {
   align-items: center;
 }
 
-/* Fallback button styles */
+
+/*-------------------------------------------------------------------------
+  Fallback Button Styles
+-------------------------------------------------------------------------*/
 .fallback-button {
   position: relative;
   z-index: 10000;
@@ -125,25 +149,40 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Custom animation for twinkling stars */
+
+/*-------------------------------------------------------------------------
+  Animations & Utilities
+-------------------------------------------------------------------------*/
+
+/* Twinkling Stars */
 @keyframes twinkle {
-  0%, 100% { opacity: 0.1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.2); }
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
 }
 
 .animate-twinkle {
   animation: twinkle 3s infinite;
 }
 
-/* Smooth scrolling */
+/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Space dust particles */
+/* Space Dust Particles */
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(90deg); }
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(90deg);
+  }
 }
 
 .space-dust {
@@ -151,35 +190,14 @@ html {
   animation: float 10s infinite;
 }
 
-/* Cosmic portal effect */
-@keyframes portal-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.cosmic-portal {
-  @apply absolute w-full h-full;
-  background: conic-gradient(
-    from 0deg,
-    transparent,
-    rgba(147, 51, 234, 0.1),
-    transparent
-  );
-  animation: portal-spin 30s linear infinite;
-}
-
-/* Optimize performance */
+/*-------------------------------------------------------------------------
+  Performance Optimizations & Reduced Motion
+-------------------------------------------------------------------------*/
 * {
   will-change: auto;
 }
 
-.motion-reduce * {
-  animation-duration: 0.01ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.01ms !important;
-  scroll-behavior: auto !important;
-}
-
+/* Apply reduced-motion preferences globally */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

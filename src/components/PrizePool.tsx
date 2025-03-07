@@ -26,19 +26,19 @@ export const PrizePool = () => {
     {
       icon: <Trophy className="w-12 h-12" />,
       position: "1st Prize",
-      amount: "₹50,000",
+      amount: "₹10,000",
       color: "from-yellow-400 to-yellow-600"
     },
     {
       icon: <Award className="w-12 h-12" />,
       position: "2nd Prize",
-      amount: "₹30,000",
+      amount: "₹8,000",
       color: "from-gray-300 to-gray-500"
     },
     {
       icon: <Medal className="w-12 h-12" />,
       position: "3rd Prize",
-      amount: "₹20,000",
+      amount: "₹5,000",
       color: "from-orange-400 to-orange-600"
     }
   ];
@@ -81,7 +81,7 @@ export const PrizePool = () => {
             textShadow: '0 0 10px rgba(147, 51, 234, 0.5)'
           }}
         >
-          Stellar Rewards
+          Prizes
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
