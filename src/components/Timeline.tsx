@@ -118,20 +118,25 @@ export const Timeline: React.FC = () => {
         </h2>
       </div>
       <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-20">
-        <div className="timeline-progress absolute w-[3px] h-full z-[-1] overflow-hidden left-[25px] md:left-auto" style={{ backgroundColor: "#33123a" }}>
-          <div className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
+        {/* Main timeline bar (background) */}
+        <div className="timeline-progress absolute w-[3px] h-full left-[25px] md:left-auto" style={{ backgroundColor: "#33123a", position: "absolute", zIndex: 1 }}>
+          {/* Animated progress bar (foreground) */}
+          <div className="timeline-progress-bar w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]" style={{ position: "fixed", zIndex: 2 }}></div>
         </div>
 
-        {timelineData.map((item, index) => (
-          <Timelineitem
-            key={index}
-            step={item.step}
-            number={item.number}
-            heading={item.heading}
-            image={item.image}
-            description={item.description}
-          />
-        ))}
+        {/* Timeline content with higher z-index */}
+        <div style={{ position: "relative", zIndex: 5 }}>
+          {timelineData.map((item, index) => (
+            <Timelineitem
+              key={index}
+              step={item.step}
+              number={item.number}
+              heading={item.heading}
+              image={item.image}
+              description={item.description}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )
