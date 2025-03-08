@@ -119,9 +119,9 @@ export const Timeline: React.FC = () => {
       </div>
       <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-20">
         {/* Main timeline bar (background) */}
-        <div className="timeline-progress absolute w-[3px] h-full left-[25px] md:left-auto" style={{ backgroundColor: "#33123a", position: "absolute", zIndex: 1 }}>
+        <div className="timeline-progress absolute z-[-1] w-[3px] h-full left-[25px] md:left-auto bg-[#33123a]">
           {/* Animated progress bar (foreground) */}
-          <div className="timeline-progress-bar w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]" style={{ position: "fixed", zIndex: 2 }}></div>
+          <div className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
         </div>
 
         {/* Timeline content with higher z-index */}

@@ -99,7 +99,7 @@ export const Hero = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-bold text-center bg-gradient-to-r from-[#d44c4c] via-[#2e9e96] to-[#7452c8] text-transparent bg-clip-text"
+          className="text-5xl md:text-8xl font-bold text-center bg-gradient-to-r from-[#d44c4c] via-[#2e9e96] to-[#7452c8] text-transparent bg-clip-text"
           style={{
             backgroundSize: '200% auto',
             animation: 'gradient 5s linear infinite',

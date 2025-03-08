@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-black">
+    <div className="">
       <Hero />
       <About />
       <Gallery />
@@ -32,6 +32,7 @@ function App() {
       <PrizePool />
       <FAQ />
       {/* <Contact /> */}
+
     </div>
   );
 }
