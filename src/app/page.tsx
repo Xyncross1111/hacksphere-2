@@ -7,10 +7,8 @@ import { Gallery } from '../components/Gallery';
 import { Timeline } from '../components/Timeline';
 import { Sponsors } from '../components/Sponsors';
 import { Domains } from '../components/Domains';
-// import { ProblemStatements } from '../components/ProblemStatements';
 import { PrizePool } from '../components/PrizePool';
 import { FAQ } from '../components/FAQ';
-// import { Contact } from '../components/Contact';
 
 function App() {
   useEffect(() => {

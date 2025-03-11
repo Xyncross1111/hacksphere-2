@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { MemoriesCard } from "./MemoriesCard";
+import { Memories } from "@/data/Memories";
 
 export const Gallery = () => {
   const [ref, inView] = useInView({
@@ -25,24 +27,8 @@ export const Gallery = () => {
         >
           HackSphere 1.0 Memories
         </motion.h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {images.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ y: 50, opacity: 0 }}
-              animate={inView ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="relative overflow-hidden rounded-lg aspect-square"
-            >
-              <img
-                src={image}
-                alt={`HackSphere 1.0 moment ${index + 1}`}
-                className="object-cover w-full h-full transform hover:scale-110 transition-transform duration-500"
-              />
-            </motion.div>
-          ))}
-        </div>
+
+        <MemoriesCard testimonials={Memories} />
       </div>
     </section>
   );

@@ -34,21 +34,6 @@ export const Domains = () => {
       icon: <Globe className="w-12 h-12" />,
       title: "Planetary Tech",
       description: "Create innovations for space navigation and communication"
-    },
-    {
-      icon: <Shield className="w-12 h-12" />,
-      title: "Astral Security",
-      description: "Secure space systems and protect cosmic data"
-    },
-    {
-      icon: <Satellite className="w-12 h-12" />,
-      title: "Orbital Networks",
-      description: "Design satellite communication systems for the future"
-    },
-    {
-      icon: <Rocket className="w-12 h-12" />,
-      title: "Propulsion Systems",
-      description: "Innovate on spacecraft propulsion and energy technologies"
     }
   ];
 
