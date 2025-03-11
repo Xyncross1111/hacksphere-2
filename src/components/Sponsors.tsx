@@ -9,10 +9,20 @@ export const Sponsors = () => {
 
   const sponsors = [
     {
-      name: "Devfolio",
-      logo: "https://assets.devfolio.co/company/59edee1d8e834e3ba2f8e5c820c44da6/assets/favicon.png",
-      tier: "Title"
+      name: "DEVFOLIO",
+      logo: "/devfolio.png",
+      tier: "Gold"
     },
+    {
+      name: "ETHINDIA",
+      logo: "/ETHIndia.png",
+      tier: "Silver"
+    },
+    {
+      name: "POLYGON",
+      logo: "/polygon.svg",
+      tier: "Silver"
+    }
     // Add more sponsors here
   ];
 
@@ -39,7 +49,7 @@ export const Sponsors = () => {
             >
               <img
                 src={sponsor.logo}
-                alt={`${sponsor.name} logo`}
+                alt={`${sponsor.name} LOGO`}
                 className="h-24 w-auto mb-4"
               />
               <h3 className="text-xl font-semibold text-white">{sponsor.name}</h3>

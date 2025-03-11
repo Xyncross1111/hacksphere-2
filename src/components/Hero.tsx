@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Rocket, Stars, Orbit } from "lucide-react";
 // import { DevfolioButton } from './DevfolioButton';
 import { useState, useEffect } from "react";
+import { DevfolioButton } from "./DevfolioButton";
 
 export const Hero = () => {
   // State to store window dimensions
@@ -132,17 +133,8 @@ export const Hero = () => {
           infinite possibilities of space
         </motion.p>
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-12 flex justify-center items-center"
-        >
-          {/* <DevfolioButton 
-            hackathonSlug="hacksphere" 
-            buttonTheme="dark"
-            className="z-50"
-          /> */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
+          <DevfolioButton hackathonSlug="hacksphere2" buttonTheme="light" />
         </motion.div>
 
         <motion.div

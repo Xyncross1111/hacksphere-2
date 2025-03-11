@@ -22,6 +22,7 @@ export default function RootLayout({
       <body
         className={orbitron.className}
       >
+        <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
         {children}
       </body>
     </html>
