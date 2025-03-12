@@ -31,7 +31,6 @@ function App() {
       <PrizePool />
       <FAQ />
       {/* <Contact /> */}
-      <Footer />
 
     </div>
   );
