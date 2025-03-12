@@ -1,42 +1,90 @@
 "use client";
 
+import { useEffect, useState, FC } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
-interface Sponsor {
-  name: string;
-  logo: string;
-  tier: string;
-}
+const sponsors = [
+  {
+    name: "DEVFOLIO",
+    logo: "/devfolio.png",
+    tier: "Gold",
+  },
+  {
+    name: "ETHINDIA",
+    logo: "/ETHIndia.png",
+    tier: "Silver",
+  },
+  {
+    name: "POLYGON",
+    logo: "/polygon.svg",
+    tier: "Silver",
+  },
+];
 
-export const Sponsors: React.FC = () => {
+export const Sponsors = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const sponsors: Sponsor[] = [
-    {
-      name: "DEVFOLIO",
-      logo: "/devfolio.png",
-      tier: "Gold",
-    },
-    {
-      name: "ETHINDIA",
-      logo: "/ETHIndia.png",
-      tier: "Silver",
-    },
-    {
-      name: "POLYGON",
-      logo: "/polygon.svg",
-      tier: "Silver",
-    },
-    // Add more sponsors here
-  ];
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+
+  const starPositions = Array(20).fill(0).map(() => ({
+    x: Math.random() * 100, // Use percentage instead of absolute pixels
+    y: Math.random() * 100,
+    duration: Math.random() * 5 + 5
+  }));
 
   return (
-    <section ref={ref} className="py-20 bg-gray-900">
+
+    <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
+      <div className="absolute inset-0">
+        {starPositions.map((pos, i) => (
+          <motion.div
+            key={i}
+            className="star"
+            initial={{ opacity: 0.1 }}
+            animate={{
+              opacity: [0.1, 0.5, 0.1],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: pos.duration,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              left: `${pos.x}%`,
+              top: `${pos.y}%`
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ y: 50, opacity: 0 }}

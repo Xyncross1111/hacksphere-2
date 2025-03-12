@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Rocket, Stars, Sparkles } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-export default function SpaceFooter() {
+export function Footer() {
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
 
