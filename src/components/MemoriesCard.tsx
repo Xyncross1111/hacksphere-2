@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
@@ -28,16 +27,15 @@ export const MemoriesCard = ({
   const isActive = (index: number) => index === active;
 
   const OddEven = () => {
-    return ;
+    return;
   }
 
-
-  const randomRotateY = () => Math.floor(Math.random() * 17 );
+  const randomRotateY = () => Math.floor(Math.random() * 17);
 
   return (
     // set height for all the devices (Hardcode)
-    <div className="w-full h-[60vh] flex items-center justify-center px-6"> 
-      <div className="w-full max-w-5xl flex flex-row justify-between items-center gap-8">
+    <div className="w-full h-[50vh] flex items-center justify-center px-6">
+      <div className="w-full h-[50vh] flex flex-col md:flex-row md:items-center md:justify-center px-6 gap-8">
         {/* Image Section */}
         <div className="relative flex-1 flex items-center justify-center">
           <AnimatePresence>
@@ -67,7 +65,7 @@ export const MemoriesCard = ({
             ))}
           </AnimatePresence>
         </div>
-  
+
         {/* Text Section */}
         <motion.div
           key={active}
@@ -82,5 +80,5 @@ export const MemoriesCard = ({
       </div>
     </div>
   );
-  
+
 };

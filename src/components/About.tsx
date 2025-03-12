@@ -134,7 +134,7 @@ export const About = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* <motion.div
+        <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
@@ -147,7 +147,7 @@ export const About = () => {
             Join us for an interstellar hackathon experience where innovation knows no bounds.
             HackSphere brings together the brightest minds to solve cosmic challenges.
           </p>
-        </motion.div> */}
+        </motion.div>
 
         <motion.div
           variants={containerVariants}
