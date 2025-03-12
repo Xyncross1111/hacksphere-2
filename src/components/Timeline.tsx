@@ -39,28 +39,28 @@ export const Timeline: React.FC = () => {
 
   const timelineData: TimelineItemData[] = [
     {
-      step: "STEP ONE",
+      step: "STEP",
       number: 1,
       heading: "Meeting",
       image: "/assets/meeting.webp",
       description: "We start by gathering all relevant details about your business, target audience, color themes, and your expectations. This thorough understanding ensures that we align our vision with your goals."
     },
     {
-      step: "STEP TWO",
+      step: "STEP",
       number: 2,
       heading: "Brainstorming",
       image: "/assets/brainstorming.webp",
       description: "Based on the insights from our meeting, we engage in comprehensive brainstorming sessions. We consider fonts, design aesthetics, website structure, and user psychology to create a solid foundation for your website."
     },
     {
-      step: "STEP THREE",
+      step: "STEP",
       number: 3,
       heading: "Design & Prototyping",
       image: "/assets/designing.webp",
       description: "In the design phase, we create modern, professional, and relevant designs. Our focus is on delivering a clean, aesthetically pleasing interface without unnecessary elements, ensuring a seamless user experience."
     },
     {
-      step: "STEP FOUR",
+      step: "STEP",
       number: 4,
       heading: "Developing",
       image: "/assets/developing.webp",
@@ -105,7 +105,7 @@ export const Timeline: React.FC = () => {
   }, [windowWidth]); // Re-run when windowWidth changes
 
   return (
-    <section className="process-section text-center" id="process">
+    <section className="process-section text-center pb-12" id="process">
       <div className="processsectionheading py-[10%] pb-[10vh] md:py-[10%] md:pb-[10vh] lg:py-[5%] bg-black">
         <h2 className="inline font-[Nulshock] text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-center"
           style={{
