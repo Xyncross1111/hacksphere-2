@@ -1,3 +1,4 @@
+import SpaceFooter from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Orbitron } from "next/font/google";
@@ -24,6 +25,7 @@ export default function RootLayout({
       >
         <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
         {children}
+        <SpaceFooter/>
       </body>
     </html>
   );
