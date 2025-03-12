@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { useEffect, useRef } from "react";
 
 interface DevfolioButtonProps {
   hackathonSlug: string;
@@ -11,20 +11,27 @@ export const DevfolioButton = ({
   buttonTheme = "light",
   className = "",
 }: DevfolioButtonProps) => {
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+}, []);
+
   return (
-    <a
-      href={`https://devfolio.co/external-apply/${hackathonSlug}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex items-center gap-2 px-6 py-2 text-white font-semibold rounded-lg hover:opacity-80 transition ${className}`}
-    >
-      <Image 
-        src="/devfolio.png" 
-        alt="Devfolio" 
-        width={240} 
-        height={240} 
-        layout="intrinsic" 
-      />
-    </a>
+    <div className={`apply-button-container ${className}`} ref={buttonRef}>
+      <div
+        className="apply-button"
+        data-hackathon-slug={hackathonSlug}
+        data-button-theme={buttonTheme}
+        style={{ height: "44px", width: "312px" }}
+      ></div>
+    </div>
   );
 };

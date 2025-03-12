@@ -127,23 +127,20 @@ export const Hero = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-300 text-center mt-6 max-w-2xl"
+          className="text-xl md:text-2xl text-gray-300 text-center mt-6 pb-16 max-w-2xl"
         >
           Embark on a cosmic journey of innovation where technology meets the
           infinite possibilities of space
         </motion.p>
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-300 text-center mt-6 max-w-2xl"
-        >
-          <DevfolioButton
-            hackathonSlug="hacksphere2"
-            buttonTheme="dark"
-            className=" text-white px-4 py-2 rounded-lg"
-          />
+{/* 
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
+          <DevfolioButton hackathonSlug="hacksphere2" buttonTheme="light" />
+        </motion.div>  */}
+
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
+          <DevfolioButton hackathonSlug="hacksphere2" buttonTheme="dark" />
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
