@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { MemoriesCard } from "./MemoriesCard";
@@ -9,15 +11,59 @@ export const Gallery = () => {
     threshold: 0.1,
   });
 
-  const images = [
-    "https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1517976384346-3136801d605d?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1581822261290-991b38693d1b?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?auto=format&fit=crop&q=80",
-  ];
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  
+    useEffect(() => {
+      // Set dimensions once mounted (client-side only)
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+  
+      const handleResize = () => {
+        setDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
+  const starPositions = Array(20).fill(0).map(() => ({
+    x: Math.random() * 100, // Use percentage instead of absolute pixels
+    y: Math.random() * 100,
+    duration: Math.random() * 5 + 5
+  }));
 
   return (
-    <section ref={ref} className="py-20 bg-gray-900">
+    <section ref={ref} className="space-gradient py-20 relative overflow-hidden">
+      <div className="absolute inset-0">
+        {starPositions.map((pos, i) => (
+          <motion.div
+            key={i}
+            className="star"
+            initial={{ opacity: 0.1 }}
+            animate={{
+              opacity: [0.1, 0.5, 0.1],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: pos.duration,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              left: `${pos.x}%`,
+              top: `${pos.y}%`
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ y: 50, opacity: 0 }}
@@ -28,7 +74,9 @@ export const Gallery = () => {
           HackSphere 1.0 Memories
         </motion.h2>
 
-        <MemoriesCard testimonials={Memories} />
+        <div className="">
+          <MemoriesCard testimonials={Memories} />
+        </div>
       </div>
     </section>
   );
