@@ -115,7 +115,7 @@ export const PrizePool = () => {
           className="text-center mt-12"
         >
           <p className="text-gray-300 text-lg">
-            Additional swag and sponsored prizes worth ₹2,00,000+
+            Additional swag and sponsored prizes.
           </p>
         </motion.div>
       </div>
