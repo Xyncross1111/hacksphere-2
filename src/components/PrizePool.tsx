@@ -26,19 +26,19 @@ export const PrizePool = () => {
     {
       icon: <Trophy className="w-12 h-12" />,
       position: "1st Prize",
-      amount: "₹10,000",
+      amount: "₹7,000",
       color: "from-yellow-400 to-yellow-600"
     },
     {
       icon: <Award className="w-12 h-12" />,
       position: "2nd Prize",
-      amount: "₹8,000",
+      amount: "₹5,000",
       color: "from-gray-300 to-gray-500"
     },
     {
       icon: <Medal className="w-12 h-12" />,
       position: "3rd Prize",
-      amount: "₹5,000",
+      amount: "₹3,000",
       color: "from-orange-400 to-orange-600"
     }
   ];
