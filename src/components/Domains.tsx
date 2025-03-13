@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Shield, Satellite, Rocket, BriefcaseMedical, GraduationCap, ShieldCheck } from 'lucide-react';
+import { Shield, Satellite, Rocket, BriefcaseMedical, GraduationCap ,ShieldCheck,CircleSlash2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const Domains = () => {
@@ -109,28 +109,13 @@ export const Domains = () => {
               </div>
 
               <p className="text-gray-300">{domain.description}</p>
-
-              {/* Orbiting particles */}
-              <div className="relative w-full h-12 mt-4">
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute left-1/2 top-1/2 w-1 h-1 bg-purple-500 rounded-full"
-                    animate={{
-                      x: Math.cos(i * (Math.PI * 2 / 3)) * 20,
-                      y: Math.sin(i * (Math.PI * 2 / 3)) * 20,
-                    }}
-                    transition={{
-                      duration: 2 + i,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    style={{
-                      boxShadow: '0 0 5px rgba(147, 51, 234, 0.8)'
-                    }}
-                  />
-                ))}
-              </div>
+                <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className='flex items-center justify-center mt-7  drop-shadow-[0_0_10px_rgba(192,132,252,0.8)]'
+                >
+                <CircleSlash2 className="w-11 h-11 text-purple-500" />
+                </motion.div> 
             </motion.div>
           ))}
         </div>
