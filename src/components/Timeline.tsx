@@ -50,14 +50,14 @@ export const Timeline: React.FC = () => {
       number: 2,
       heading: "Registration Ends",
       image: "/assets/registration close.png",
-      description: "Time’s Up! The registration and PPT Submission for HackSphere 2.0 will be closed on 19th March, 11:59 PM . Ensure your team is registered, all necessary information is submitted, and your PPT is uploaded before the deadline. Don't miss out on this chance to learn, build, and network with fellow developers, as any unfinished registrations will not be considered."
+      description: "Time's Up! The registration and PPT Submission for HackSphere 2.0 will be closed on 19th March, 11:59 PM . Ensure your team is registered, all necessary information is submitted, and your PPT is uploaded before the deadline. Don't miss out on this chance to learn, build, and network with fellow developers, as any unfinished registrations will not be considered."
     },
     {
       step: "STEP",
       number: 3,
       heading: "Shortlisted Team Announcement",
       image: "/assets/announcement.png",
-      description: "After a thorough evaluation of each PPT submitted by the teams and ensuring a fair and comprehensive review of all submissions , The shortlisted teams will be announced on 21st March. For those who didn’t make it this time, don’t be disheartened—every experience is a step toward success. Keep building, keep learning, and we look forward to seeing you in the next HackSphere!"
+      description: "After a thorough evaluation of each PPT submitted by the teams and ensuring a fair and comprehensive review of all submissions , The shortlisted teams will be announced on 21st March. For those who didn't make it this time, don't be disheartened—every experience is a step toward success. Keep building, keep learning, and we look forward to seeing you in the next HackSphere!"
     },
     {
       step: "STEP",
@@ -67,11 +67,11 @@ export const Timeline: React.FC = () => {
       description: "Congratulations to all the teams who have qualified for Round 1! Your hard work and innovation truly stood out . Welcome to HackSphere 2.0, a day filled with intense coding, collaboration, and innovation. Please ensure you report on time and follow the schedule for the day. Reporting will begin at 8:15 AM, followed by the Inauguration at 8:45 AM, and the Build Run will officially start at 9:00 AM. We look forward to seeing your creativity and innovation in action. Best of luck!"
     },
     {
-        step: "STEP",
-        number: 5,
-        heading: "Final Project Submission",
-        image: "/assets/submission.png",
-        description: "At 5:00 PM sharp, all development work must stop. Each team will then have 5 minutes to present their solution to the evaluation panel.Once all teams have presented, the judges will carefully evaluate the projects, and the results will be declared on the same day.Best wishes to all participants, we can't wait to see your hard work and creativity shine!"
+      step: "STEP",
+      number: 5,
+      heading: "Final Project Submission",
+      image: "/assets/submission.png",
+      description: "At 5:00 PM sharp, all development work must stop. Each team will then have 5 minutes to present their solution to the evaluation panel.Once all teams have presented, the judges will carefully evaluate the projects, and the results will be declared on the same day.Best wishes to all participants, we can't wait to see your hard work and creativity shine!"
     }
   ];
 
@@ -112,7 +112,7 @@ export const Timeline: React.FC = () => {
   }, [windowWidth]); // Re-run when windowWidth changes
 
   return (
-    <section className="process-section text-center pb-12" id="process">
+    <section className="process-section text-center" id="process">
       <div className="processsectionheading py-[10%] pb-[10vh] md:py-[10%] md:pb-[10vh] lg:py-[5%] bg-black">
         <h2 className="inline font-[Nulshock] text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-center"
           style={{
@@ -121,18 +121,18 @@ export const Timeline: React.FC = () => {
             textUnderlinePosition: "from-font",
             textDecorationSkipInk: "none"
           }}>
-          OUR PROCESS
+          SCHEDULE
         </h2>
       </div>
-      <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-20">
+      <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-40">
         {/* Main timeline bar (background) */}
         <div className="timeline-progress absolute z-[-1] w-[3px] h-full left-[25px] md:left-auto bg-[#33123a]">
-          {/* Animated progress bar (foreground) */}
+          {/* Animated progress bar (foreground) - modified to stop before reaching bottom */}
           <div className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
         </div>
 
         {/* Timeline content with higher z-index */}
-        <div style={{ position: "relative", zIndex: 5 }}>
+        <div style={{ position: "relative", zIndex: 5 }} className="w-full">
           {timelineData.map((item, index) => (
             <Timelineitem
               key={index}

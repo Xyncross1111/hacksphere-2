@@ -26,10 +26,6 @@ export const MemoriesCard = ({
 
   const isActive = (index: number) => index === active;
 
-  const OddEven = () => {
-    return;
-  }
-
   const randomRotateY = () => Math.floor(Math.random() * 17);
 
   return (
@@ -37,7 +33,7 @@ export const MemoriesCard = ({
     <div className="w-full h-[50vh] flex items-center justify-center px-6">
       <div className="w-full h-[50vh] flex flex-col md:flex-row md:items-center md:justify-center px-6 gap-8">
         {/* Image Section */}
-        <div className="relative flex-1 flex items-center justify-center">
+        <div className="relative flex-1 flex items-center pb-8 justify-center">
           <AnimatePresence>
             {testimonials.map((testimonial, index) => (
               <motion.div

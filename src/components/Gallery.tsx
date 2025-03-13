@@ -41,7 +41,7 @@ export const Gallery = () => {
   }));
 
   return (
-    <section ref={ref} className="space-gradient py-20 relative overflow-hidden">
+    <section ref={ref} className="space-gradient py-6 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0">
         {starPositions.map((pos, i) => (
           <motion.div
