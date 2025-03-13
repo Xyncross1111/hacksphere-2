@@ -30,7 +30,7 @@ export const FAQ = () => {
   const faqs = [
     {
       question: "Who can participate?",
-      answer: "Anyone who is passionate about technology and space exploration can participate. Whether you're a student, professional, or space enthusiast, HackSphere welcomes all innovators."
+      answer: "HackSphere 2.0 invites all students who are passionate about coding, creativity, and problem-solving. Whether you're a beginner or an experienced innovator, join us to collaborate, build, and push the boundaries of technology! Important Note: Participation in this hackathon is strictly limited to students only."
     },
     {
       question: "What's the team size?",
@@ -46,7 +46,7 @@ export const FAQ = () => {
     },
     {
       question: "Is this an online or offline event?",
-      answer: "HackSphere is a hybrid event with both online and offline participation options available, connecting innovators across the galaxy."
+      answer: "The Ideation round will be conducted online. HackSphere 2.0 will be conducted in complete offline/in-person mode."
     }
   ];
 
@@ -109,9 +109,9 @@ export const FAQ = () => {
                   <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
                   <div>
                     {openIndex === index ? (
-                      <ChevronUp className="w-5 h-5 text-purple-500" />
+                      <ChevronUp className="w-5 h-5 text-purple-500 cursor-pointer" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-purple-500" />
+                      <ChevronDown className="w-5 h-5 text-purple-500 cursor-pointer" />
                     )}
                   </div>
                 </div>

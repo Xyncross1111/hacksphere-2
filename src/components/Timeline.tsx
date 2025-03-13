@@ -41,30 +41,37 @@ export const Timeline: React.FC = () => {
     {
       step: "STEP",
       number: 1,
-      heading: "Meeting",
-      image: "/assets/meeting.webp",
-      description: "We start by gathering all relevant details about your business, target audience, color themes, and your expectations. This thorough understanding ensures that we align our vision with your goals."
+      heading: "Registration Begins",
+      image: "/assets/registration start.png",
+      description: "The innovation journey begins! Registration and PPT Submission for HackSphere 2.0 will start on 15th March , 12AM. Assemble your teams of 2-4 members, prepare your PPT showcasing your innovative ideas, brainstorm groundbreaking solutions, and get ready to tackle real-world challenges. Secure your spot by registering early and receive timely updates. Don't forget to review the PPT Submission rules and guidelines."
     },
     {
       step: "STEP",
       number: 2,
-      heading: "Brainstorming",
-      image: "/assets/brainstorming.webp",
-      description: "Based on the insights from our meeting, we engage in comprehensive brainstorming sessions. We consider fonts, design aesthetics, website structure, and user psychology to create a solid foundation for your website."
+      heading: "Registration Ends",
+      image: "/assets/registration close.png",
+      description: "Time’s Up! The registration and PPT Submission for HackSphere 2.0 will be closed on 19th March, 11:59 PM . Ensure your team is registered, all necessary information is submitted, and your PPT is uploaded before the deadline. Don't miss out on this chance to learn, build, and network with fellow developers, as any unfinished registrations will not be considered."
     },
     {
       step: "STEP",
       number: 3,
-      heading: "Design & Prototyping",
-      image: "/assets/designing.webp",
-      description: "In the design phase, we create modern, professional, and relevant designs. Our focus is on delivering a clean, aesthetically pleasing interface without unnecessary elements, ensuring a seamless user experience."
+      heading: "Shortlisted Team Announcement",
+      image: "/assets/announcement.png",
+      description: "After a thorough evaluation of each PPT submitted by the teams and ensuring a fair and comprehensive review of all submissions , The shortlisted teams will be announced on 21st March. For those who didn’t make it this time, don’t be disheartened—every experience is a step toward success. Keep building, keep learning, and we look forward to seeing you in the next HackSphere!"
     },
     {
       step: "STEP",
       number: 4,
-      heading: "Developing",
-      image: "/assets/developing.webp",
-      description: "Finally, we bring the designs to life. Our development team writes clean, efficient code to build a responsive, functional, and bug-free website that meets all your requirements and exceeds your expectations."
+      heading: "Day of Hackathon",
+      image: "/assets/run build.png",
+      description: "Congratulations to all the teams who have qualified for Round 1! Your hard work and innovation truly stood out . Welcome to HackSphere 2.0, a day filled with intense coding, collaboration, and innovation. Please ensure you report on time and follow the schedule for the day. Reporting will begin at 8:15 AM, followed by the Inauguration at 8:45 AM, and the Build Run will officially start at 9:00 AM. We look forward to seeing your creativity and innovation in action. Best of luck!"
+    },
+    {
+        step: "STEP",
+        number: 5,
+        heading: "Final Project Submission",
+        image: "/assets/submission.png",
+        description: "At 5:00 PM sharp, all development work must stop. Each team will then have 5 minutes to present their solution to the evaluation panel.Once all teams have presented, the judges will carefully evaluate the projects, and the results will be declared on the same day.Best wishes to all participants, we can't wait to see your hard work and creativity shine!"
     }
   ];
 

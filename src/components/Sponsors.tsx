@@ -92,7 +92,7 @@ export const Sponsors = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold text-white text-center mb-16"
         >
-          Our Partners
+          Mission Supporters
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

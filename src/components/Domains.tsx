@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Brain, Cloud, Globe, Shield, Satellite, Rocket } from 'lucide-react';
+import { Shield, Satellite, Rocket, BriefcaseMedical, GraduationCap ,ShieldCheck } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const Domains = () => {
@@ -21,19 +21,19 @@ export const Domains = () => {
 
   const domains = [
     {
-      icon: <Brain className="w-12 h-12" />,
-      title: "Cosmic Intelligence",
-      description: "Develop AI solutions for space exploration and data analysis"
+      icon: <BriefcaseMedical className="w-12 h-12" />,
+      title: "Health-Tech",
+      description: "Develop technology to enhance healthcare through AI, telemedicine and smart medical solutions."
     },
     {
-      icon: <Cloud className="w-12 h-12" />,
-      title: "Nebula Computing",
-      description: "Build scalable space applications using cloud technologies"
+      icon: <GraduationCap className="w-12 h-12" />,
+      title: "Ed-Tech",
+      description: "Harnesses technology to transform learning through gamification, interactive platforms, and personalized education solutions."
     },
     {
-      icon: <Globe className="w-12 h-12" />,
-      title: "Planetary Tech",
-      description: "Create innovations for space navigation and communication"
+      icon: <ShieldCheck className="w-12 h-12" />,
+      title: "Blockchain",
+      description: "Embrace decentralization! Dive into smart contracts and blockchain technology to shape the future."
     }
   ];
 

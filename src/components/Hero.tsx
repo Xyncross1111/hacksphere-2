@@ -119,7 +119,7 @@ export const Hero = () => {
               animation: "gradient 5s linear infinite",
             }}
           >
-            HackSphere
+            HackSphere 2.0
           </motion.h1>
         </div>
 
@@ -129,8 +129,7 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-300 text-center mt-6 pb-16 max-w-2xl"
         >
-          Embark on a cosmic journey of innovation where technology meets the
-          infinite possibilities of space
+          RBU’s only student-run hackathon, which brings together tech enthusiasts for 8 hours of innovation and problem-solving.
         </motion.p>
 {/* 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
@@ -152,7 +151,7 @@ export const Hero = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="text-gray-400 flex flex-col items-center"
           >
-            <span className="mb-2">Scroll to Explore</span>
+            <span className="mb-2">Scroll to Launch</span>
             <motion.div
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
