@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Shield, Satellite, Rocket, BriefcaseMedical, GraduationCap ,ShieldCheck,CircleSlash2} from 'lucide-react';
+import { BriefcaseMedical, GraduationCap, ShieldCheck, CircleSlash2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const Domains = () => {
