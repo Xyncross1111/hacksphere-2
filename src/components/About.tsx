@@ -1,7 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code2, Rocket, Users, Orbit } from 'lucide-react';
+import { Code2, Rocket, Users, Orbit, User } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const About = () => {
@@ -36,23 +36,23 @@ export const About = () => {
   const features = [
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: "12 Hours of Coding",
-      description: "Non-stop innovation and coding challenges in a space-themed environment"
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "25+ Teams",
-      description: "Connect with fellow space enthusiasts and tech innovators"
+      title: "8 Hours of Coding",
+      description: "Immerse yourself in 8 hours of Innovation and creativity!"
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "Launch Your Ideas",
-      description: "Transform your cosmic ideas into reality with expert mentorship"
+      title: "Zero Fees",
+      description: "No Cost to Participate , enjoy free meals and unforgettable fun."
     },
     {
       icon: <Orbit className="w-8 h-8" />,
-      title: "Cosmic Networking",
-      description: "Expand your universe by connecting with industry leaders and mentors"
+      title: "Swags and Goodies",
+      description: "Win prizes , grab goodies and take home more than just memories."
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: "Innovators' Nexus",
+      description: "Broaden your Horizons by networking with industry experts and mentors."
     }
   ];
 
@@ -141,11 +141,9 @@ export const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            About HackSphere
+            About HackSphere 2.0
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Join us for an interstellar hackathon experience where innovation knows no bounds.
-            HackSphere brings together the brightest minds to solve cosmic challenges.
           </p>
         </motion.div>
 

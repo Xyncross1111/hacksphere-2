@@ -115,7 +115,7 @@ export const PrizePool = () => {
           className="text-center mt-12"
         >
           <p className="text-gray-300 text-lg">
-            Additional swag and sponsored prizes.
+          Additional swags and sponsored prizes waiting for you !!
           </p>
         </motion.div>
       </div>
