@@ -114,7 +114,7 @@ export const Timeline: React.FC = () => {
   return (
     <section className="process-section text-center" id="process">
       <div className="processsectionheading py-[10%] pb-[10vh] md:py-[10%] md:pb-[10vh] lg:py-[5%] bg-black">
-        <h2 className="inline font-[Nulshock] text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-center shadow-white shadow-md"
+        <h2 className="inline font-[Nulshock] text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-center"
           style={{
             WebkitTextStroke: windowWidth <= 479 ? "0.7px #6e6e6e" : "1px #6e6e6e",
             WebkitTextFillColor: "transparent",
