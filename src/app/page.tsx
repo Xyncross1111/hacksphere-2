@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <div className="">
+    <div suppressHydrationWarning>
       <Hero />
       <About />
       <Gallery />

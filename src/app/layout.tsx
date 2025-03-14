@@ -1,7 +1,7 @@
-import { Footer } from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Orbitron, Space_Grotesk } from "next/font/google";
+import { Footer } from "@/components/Footer";
 
 const orbitron = Orbitron({
   variable: '--font-orbitron',
@@ -17,6 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "HackSphere 2.0",
   description: "Unleash your Imagination",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -26,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="color-scheme" content="dark" />
+      </head>
       <body
          className={`${spaceGrotesk.className} ${orbitron.className}`}
       >
