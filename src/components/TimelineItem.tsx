@@ -57,7 +57,7 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
           >
             <div>{props.heading}</div>
             {/* Mobile date - shown only on mobile */}
-            <div className="timeline-mobile-date text-[#9523ff] font-['Space Grotesk'] text-base mt-1">
+            <div className="timeline-mobile-date text-[#d899b8] font-['Space Grotesk'] text-base mt-1">
               {props.date}
             </div>
           </div>
@@ -113,7 +113,7 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
         </div>
 
         {/* Description */}
-        <div className="timeline-description font-['Space Grotesk'] mr-4 text-justify text-wrap w-full mt-4 leading-relaxed text-[#afafaf]
+        <div className="timeline-description font-['Space Grotesk'] mr-4 text-justify text-wrap w-full mt-4 leading-relaxed text-white
           max-sm:mb-3 max-sm:text-[0.9rem]
           sm:mb-6
           md:mb-0 md:text-base

@@ -154,7 +154,7 @@ export const Hero = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="text-gray-400 flex flex-col items-center"
           >
-            <span className="mb-2">Scroll to Launch</span>
+            <span className="mb-2 opacity-0 sm:opacity-100">Scroll to Launch</span>
             <motion.div
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}

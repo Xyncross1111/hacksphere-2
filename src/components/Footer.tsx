@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Github, Send, Code, Star, Instagram } from "lucide-react"
+import {  Send, Code, Heart, Instagram, Linkedin } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function Footer() {
@@ -79,7 +79,7 @@ export function Footer() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="md:text-gray-400 text-center md:text-left text-white"
+              className="text-center md:text-left text-white"
             >
               RBU's only student-run hackathon bringing together tech enthusiasts for 8 hours of innovation and problem-solving.
             </motion.p>
@@ -164,8 +164,8 @@ export function Footer() {
               transition={{ delay: 0.4, duration: 0.5 }}
             >
               {[
-                { icon: <Github className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "GitHub" },
-                { icon: <Instagram className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "Instagram" },
+                { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/thecodebreakers-rcoem/posts/?feedView=all", label: "Linkedin" },
+                { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/thecodebreakers/", label: "Instagram" },
                 { icon: <Code className="h-5 w-5" />, href: "https://unstop.com/hackathons/hacksphere-20-shri-ramdeobaba-college-of-engineering-and-management-rcoem-nagpur-1427361", label: "Devfolio" },
               ].map((social, i) => (
                 <motion.a
@@ -200,7 +200,7 @@ export function Footer() {
                 transition={{ repeat: Infinity, duration: 2 }}
                 className="mx-1"
               >
-                <Star className="h-4 w-4 text-purple-500 inline" />
+                <Heart className="h-4 w-4 text-purple-500 inline" />
               </motion.div>
               <p>by TheCodeBreakers</p>
             </div>
