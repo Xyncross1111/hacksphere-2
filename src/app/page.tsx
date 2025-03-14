@@ -24,7 +24,6 @@ function App() {
       <About />
       <Gallery />
       <Timeline />
-      <Sponsors />
       <Sponsors isPartner sponsors={DefaultPartners}/>
       <Domains />
       <PrizePool />

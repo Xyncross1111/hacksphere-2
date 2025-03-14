@@ -89,34 +89,6 @@ main {
 
 
 /*-------------------------------------------------------------------------
-  Devfolio Button Styles
--------------------------------------------------------------------------*/
-.apply-button,
-.apply-button > div,
-.apply-button iframe {
-  position: relative !important;
-  z-index: 10000 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.apply-button iframe {
-  min-height: 44px !important;
-  min-width: 312px !important;
-}
-
-.apply-button-container {
-  position: relative;
-  min-height: 50px;
-  min-width: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-/*-------------------------------------------------------------------------
   Fallback Button Styles
 -------------------------------------------------------------------------*/
 .fallback-button {

@@ -48,7 +48,7 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
           </div>
 
           {/* Mobile heading - shown only on mobile */}
-          <div className="timeline-mobile-heading text-left text-white font-['Nulshock'] font-semibold leading-[1.3]
+          <div className="timeline-mobile-heading text-left text-white font-['Orbitron'] font-semibold leading-[1.3]
             ml-16 mt-1 mb-5
             max-[425px]:text-[1.5em]
             max-sm:text-[1.8em]
@@ -83,12 +83,12 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
       {/* Right section - Content */}
       <div className="timeline-right pb-3">
         {/* Heading - hidden on mobile, shown on larger screens */}
-        <div className="timeline-heading text-left mb-3 text-white font-['Nulshock'] font-semibold leading-[1.3]
+        <div className="timeline-heading text-left mb-3 text-white font-semibold leading-[1.3]
           hidden
           md:block md:text-[2em]
           xl:text-[2.5em]"
         >
-          <div>{props.heading}</div>
+          <h2>{props.heading}</h2>
         </div>
 
         {/* Image */}
@@ -104,7 +104,7 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
         </div>
 
         {/* Description */}
-        <div className="timeline-description text-justify w-full mt-4 leading-relaxed text-[#afafaf]
+        <div className="timeline-description font-['Space Grotesk'] text-justify w-full mt-4 leading-relaxed text-[#afafaf]
           max-sm:mb-3 max-sm:text-[0.9rem]
           sm:mb-6
           md:mb-0 md:text-base

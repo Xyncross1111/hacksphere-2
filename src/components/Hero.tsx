@@ -1,9 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Rocket, Stars, Orbit } from "lucide-react";
-// import { DevfolioButton } from './DevfolioButton';
 import { useState, useEffect } from "react";
-import { DevfolioButton } from "./DevfolioButton";
 
 export const Hero = () => {
   // State to store window dimensions
@@ -131,14 +130,18 @@ export const Hero = () => {
         >
           RBU’s only student-run hackathon, which brings together tech enthusiasts for 8 hours of innovation and problem-solving.
         </motion.p>
-{/* 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
-          <DevfolioButton hackathonSlug="hacksphere2" buttonTheme="light" />
-        </motion.div>  */}
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
-          <DevfolioButton hackathonSlug="hacksphere2" buttonTheme="dark" />
+          <Link 
+            href="https://unstop.com/p/hacksphere-20-shri-ramdeobaba-universitynagpur-1427361"
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-10 py-4 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded-md text-lg tracking-wide shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
+          >
+            REGISTER NOW
+          </Link>
         </motion.div>
+        
 
         <motion.div
           initial={{ opacity: 0 }}

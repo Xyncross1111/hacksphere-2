@@ -166,7 +166,7 @@ export function Footer() {
               {[
                 { icon: <Github className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "GitHub" },
                 { icon: <Instagram className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "Instagram" },
-                { icon: <Code className="h-5 w-5" />, href: "https://devfolio.co/hacksphere2", label: "Devfolio" },
+                // { icon: <Code className="h-5 w-5" />, href: "https://devfolio.co/hacksphere2", label: "Devfolio" },
               ].map((social, i) => (
                 <motion.a
                   key={i}

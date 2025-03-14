@@ -1,11 +1,17 @@
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Orbitron } from "next/font/google";
+import { Orbitron, Space_Grotesk } from "next/font/google";
 
 const orbitron = Orbitron({
   variable: '--font-orbitron',
   subsets: ['latin'], weight: ['400', '900']
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700']
 });
 
 export const metadata: Metadata = {
@@ -21,9 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={orbitron.className}
+         className={`${spaceGrotesk.className} ${orbitron.className}`}
       >
-        <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
         {children}
         <Footer/>
       </body>
