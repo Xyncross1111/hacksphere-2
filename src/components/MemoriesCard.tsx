@@ -55,7 +55,8 @@ export const MemoriesCard = ({
                   alt="memory"
                   width={700}
                   height={400}
-                  className="rounded-md object-cover shadow-[12px_-12px_25px_rgba(192,255,252,0.4), -12px_12px_25px_rgba(192,132,252,0.4), 8px_8px_15px_rgba(192,132,252,0.4)]"
+                  objectFit="cover"
+                  className="rounded-md shadow-[12px_-12px_25px_rgba(192,255,252,0.4), -12px_12px_25px_rgba(192,132,252,0.4), 8px_8px_15px_rgba(192,132,252,0.4)]"
                 />
               </motion.div>
             ))}

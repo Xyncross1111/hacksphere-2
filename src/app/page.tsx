@@ -26,7 +26,6 @@ function App() {
       <Timeline />
       <Sponsors />
       <Domains />
-      {/* <ProblemStatements /> */}
       <PrizePool />
       <FAQ />
 

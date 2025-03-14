@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Trophy, Award, Medal, Sparkles, Gift, ExternalLink } from 'lucide-react';
+import { Trophy, Award, Medal, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const PrizePool = () => {
@@ -133,16 +133,41 @@ export const PrizePool = () => {
               <div className="relative cosmic-card p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
                 <div className="cosmic-glow"></div>
                 
-                {/* Crown indicator for 1st place */}
+                {/* Medal indicators for each position */}
                 {index === 0 && (
                   <motion.div 
-                    className="absolute -top-4 -right-4 bg-yellow-500 rounded-full p-2"
-                    animate={{ rotate: [0, 10, 0, -10, 0] }}
+                    className="absolute -top-4 -right-4 bg-yellow-500 rounded-full p-2 shadow-lg shadow-yellow-500/50"
+                    animate={{ rotate: [0, 10, 0, -10, 0], scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <Sparkles className="w-4 h-4 text-white" />
+                    <Trophy className="w-4 h-4 text-white" />
                   </motion.div>
                 )}
+                {index === 1 && (
+                  <motion.div 
+                    className="absolute -top-4 -right-4 bg-gray-400 rounded-full p-2 shadow-lg shadow-gray-400/50"
+                    animate={{ rotate: [0, 8, 0, -8, 0], scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2.5, repeat: Infinity }}
+                  >
+                    <Award className="w-4 h-4 text-white" />
+                  </motion.div>
+                )}
+                {index === 2 && (
+                  <motion.div 
+                    className="absolute -top-4 -right-4 bg-orange-500 rounded-full p-2 shadow-lg shadow-orange-500/50"
+                    animate={{ rotate: [0, 5, 0, -5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    <Medal className="w-4 h-4 text-white" />
+                  </motion.div>
+                )}
+                
+                {/* Position ribbon */}
+                <div className="absolute -left-2 top-4 bg-gradient-to-r from-purple-600 to-blue-600 px-3 py-1 rounded-r-md shadow-md">
+                  <span className="text-xs font-bold text-white">
+                    {index === 0 ? "GOLD" : index === 1 ? "SILVER" : "BRONZE"}
+                  </span>
+                </div>
                 
                 <div className={`text-gradient bg-gradient-to-r ${prize.color} bg-clip-text text-transparent mb-6`}>
                   {prize.icon}
@@ -153,7 +178,7 @@ export const PrizePool = () => {
                 </p>
                 
                 {/* Added benefits list */}
-                <div className="border-t border-purple-800 pt-4 mt-4">
+                {/* <div className="border-t border-purple-800 pt-4 mt-4">
                   <h4 className="text-sm font-semibold text-purple-300 mb-2">Benefits Include:</h4>
                   <ul className="space-y-2">
                     {prize.benefits.map((benefit, i) => (
@@ -163,7 +188,7 @@ export const PrizePool = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}
@@ -211,19 +236,18 @@ export const PrizePool = () => {
             <Sparkles className="w-8 h-8 text-purple-400 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-white mb-4">Additional Rewards</h3>
             <p className="text-gray-300 text-lg mb-6">
-              All participants will receive exclusive hackathon merchandise and certificates!
+              All participants will receive exclusive hackathon swag items and digital certificates.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">T-Shirts</div>
               <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Stickers</div>
               <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Certificates</div>
-              <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Digital Badges</div>
+              <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Badges</div>
             </div>
           </div>
           
-          <a href="#" className="inline-flex items-center text-purple-400 hover:text-purple-300 mt-6 transition-colors">
-            More details about prizes <ExternalLink className="ml-1 w-4 h-4" />
-          </a>
+          <p className="inline-flex items-center text-purple-400 hover:text-purple-300 mt-6 transition-colors">
+            See you soon!
+          </p>
         </motion.div>
       </div>
     </section>
