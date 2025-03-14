@@ -29,7 +29,7 @@ export function Footer() {
           background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)"
         }}
       />
-      
+
       <div className="nebula top-1/3 right-1/3 w-96 h-96"
         style={{
           position: "absolute",
@@ -79,7 +79,7 @@ export function Footer() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="md:text-gray-400 text-center md:text-left text-black"
+              className="md:text-gray-400 text-center md:text-left text-white"
             >
               RBU's only student-run hackathon bringing together tech enthusiasts for 8 hours of innovation and problem-solving.
             </motion.p>
@@ -156,8 +156,8 @@ export function Footer() {
                 )}
               </AnimatePresence>
             </motion.form>
-            
-            <motion.div 
+
+            <motion.div
               className="flex mt-6 space-x-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -166,7 +166,7 @@ export function Footer() {
               {[
                 { icon: <Github className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "GitHub" },
                 { icon: <Instagram className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "Instagram" },
-                // { icon: <Code className="h-5 w-5" />, href: "https://devfolio.co/hacksphere2", label: "Devfolio" },
+                { icon: <Code className="h-5 w-5" />, href: "https://unstop.com/hackathons/hacksphere-20-shri-ramdeobaba-college-of-engineering-and-management-rcoem-nagpur-1427361", label: "Devfolio" },
               ].map((social, i) => (
                 <motion.a
                   key={i}
@@ -183,9 +183,9 @@ export function Footer() {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Bottom credits */}
-        <motion.div 
+        <motion.div
           className="border-t border-gray-800 pt-6 mt-6 text-center text-white text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
