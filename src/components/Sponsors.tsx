@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
-const sponsors = [
+const DefaultSponsors : Sponsor[] = [
   {
     name: "DEVFOLIO",
     logo: "/devfolio.png",
@@ -23,7 +23,17 @@ const sponsors = [
   },
 ];
 
-export const Sponsors = () => {
+export interface Sponsor {
+  name: string;
+  logo: string;
+  tier?: string;
+}
+
+interface SponsorsProps {
+  sponsors?: Sponsor[];
+}
+
+export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -51,8 +61,6 @@ export const Sponsors = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-
 
   const starPositions = Array(20).fill(0).map(() => ({
     x: Math.random() * 100, // Use percentage instead of absolute pixels

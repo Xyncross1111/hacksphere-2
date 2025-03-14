@@ -26,7 +26,7 @@ export const MemoriesCard = ({
 
   const isActive = (index: number) => index === active;
 
-  const randomRotateY = () => Math.floor(Math.random() * 17);
+  const randomRotateY = () => Math.floor(Math.random() * 10);
 
   return (
     // set height for all the devices (Hardcode)
@@ -44,7 +44,7 @@ export const MemoriesCard = ({
                   scale: isActive(index) ? 1 : 0.95,
                   rotate: isActive(index) ? 0 : randomRotateY(),
                   zIndex: isActive(index) ? 999 : testimonials.length + 2 - index,
-                  y: isActive(index) ? [0, -10, 0] : 0,
+                  y: isActive(index) ? [0, -40, 10] : 13*index,
                 }}
                 exit={{ opacity: 0, scale: 0.9, rotate: randomRotateY() }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -53,10 +53,10 @@ export const MemoriesCard = ({
                 <Image
                   src={testimonial.src}
                   alt="memory"
-                  width={700}
-                  height={400}
-                  objectFit="cover"
-                  className="rounded-md shadow-[12px_-12px_25px_rgba(192,255,252,0.4), -12px_12px_25px_rgba(192,132,252,0.4), 8px_8px_15px_rgba(192,132,252,0.4)]"
+                  width={550}
+                  height={300}
+                  // objectFit="cover"
+                  className="rounded-md object-cover shadow-[12px_-12px_25px_rgba(192,255,252,0.4), -12px_12px_25px_rgba(192,132,252,0.4), 8px_8px_15px_rgba(192,132,252,0.4)]"
                 />
               </motion.div>
             ))}
@@ -64,7 +64,7 @@ export const MemoriesCard = ({
         </div>
 
         {/* Text Section */}
-        <motion.div
+        {/* <motion.div
           key={active}
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -73,7 +73,7 @@ export const MemoriesCard = ({
           className="flex-1 text-lg text-gray-600 dark:text-neutral-300 text-center md:text-left"
         >
           {testimonials[active].message}
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   );

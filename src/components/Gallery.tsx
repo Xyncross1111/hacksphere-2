@@ -69,7 +69,7 @@ export const Gallery = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-white text-center mb-16"
+          className="text-4xl md:text-5xl font-bold text-white text-center mb-16 "
         >
           HackSphere 1.0 Memories
         </motion.h2>

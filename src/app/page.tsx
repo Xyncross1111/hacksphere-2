@@ -5,14 +5,14 @@ import { Hero } from '../components/Hero';
 import { About } from '../components/About';
 import { Gallery } from '../components/Gallery';
 import { Timeline } from '../components/Timeline';
-import { Sponsors } from '../components/Sponsors';
 import { Domains } from '../components/Domains';
 import { PrizePool } from '../components/PrizePool';
 import { FAQ } from '../components/FAQ';
+import { DefaultPartners } from '@/data/Partners';
+import { Sponsors } from '../components/Sponsors';
 
 function App() {
   useEffect(() => {
-    // Add a class to reduce motion for users who prefer reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('motion-reduce');
     }
@@ -25,6 +25,7 @@ function App() {
       <Gallery />
       <Timeline />
       <Sponsors />
+      <Sponsors sponsors={DefaultPartners}/>
       <Domains />
       <PrizePool />
       <FAQ />
