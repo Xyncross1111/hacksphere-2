@@ -112,7 +112,7 @@ export const Timeline: React.FC = () => {
   }, [windowWidth]); // Re-run when windowWidth changes
 
   return (
-    <section className="process-section text-center pb-12" id="process">
+    <section className="process-section text-center" id="process">
       <div className="processsectionheading py-[10%] pb-[10vh] md:py-[10%] md:pb-[10vh] lg:py-[5%] bg-black">
         <h2 className="inline font-[Nulshock] text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-center"
           style={{
@@ -121,18 +121,18 @@ export const Timeline: React.FC = () => {
             textUnderlinePosition: "from-font",
             textDecorationSkipInk: "none"
           }}>
-          OUR PROCESS
+          SCHEDULE
         </h2>
       </div>
-      <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-20">
+      <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-40">
         {/* Main timeline bar (background) */}
         <div className="timeline-progress absolute z-[-1] w-[3px] h-full left-[25px] md:left-auto bg-[#33123a]">
-          {/* Animated progress bar (foreground) */}
+          {/* Animated progress bar (foreground) - modified to stop before reaching bottom */}
           <div className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
         </div>
 
         {/* Timeline content with higher z-index */}
-        <div style={{ position: "relative", zIndex: 5 }}>
+        <div style={{ position: "relative", zIndex: 5 }} className="w-full">
           {timelineData.map((item, index) => (
             <Timelineitem
               key={index}

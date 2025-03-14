@@ -9,7 +9,6 @@ import { Sponsors } from '../components/Sponsors';
 import { Domains } from '../components/Domains';
 import { PrizePool } from '../components/PrizePool';
 import { FAQ } from '../components/FAQ';
-import { Footer } from '../components/Footer';
 
 function App() {
   useEffect(() => {
@@ -27,10 +26,8 @@ function App() {
       <Timeline />
       <Sponsors />
       <Domains />
-      {/* <ProblemStatements /> */}
       <PrizePool />
       <FAQ />
-      {/* <Contact /> */}
 
     </div>
   );

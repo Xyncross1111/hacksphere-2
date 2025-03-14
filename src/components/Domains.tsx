@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Shield, Satellite, Rocket, BriefcaseMedical, GraduationCap ,ShieldCheck,CircleSlash2} from 'lucide-react';
+import { BriefcaseMedical, GraduationCap, ShieldCheck, CircleSlash2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const Domains = () => {
@@ -8,9 +8,9 @@ export const Domains = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   const [dimensions, setDimensions] = useState({ width: 1000, height: 800 });
-  
+
   useEffect(() => {
     // Set dimensions only after component mounts
     setDimensions({
@@ -69,7 +69,7 @@ export const Domains = () => {
       {/* Rest of the component remains unchanged */}
       {/* Nebula effects - reduced opacity */}
       <div className="absolute inset-0 opacity-10">
-        <div className="nebula top-1/4 right-1/4 w-96 h-96" 
+        <div className="nebula top-1/4 right-1/4 w-96 h-96"
           style={{ background: 'linear-gradient(45deg, #3b82f6, #9333ea)' }} />
       </div>
 
@@ -101,10 +101,13 @@ export const Domains = () => {
               className="cosmic-card p-8 text-center group hover:transform hover:-translate-y-2 transition-all duration-300"
             >
               <div className="cosmic-glow"></div>
-              <div className="text-purple-500 mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                {domain.icon}
+              <div className="flex flex-row mb-6">
+                <div className="text-purple-500 transform group-hover:scale-110 transition-transform duration-300">
+                  {domain.icon}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-semibold text-white my-2 ml-8">{domain.title}</h3>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">{domain.title}</h3>
+
               <p className="text-gray-300">{domain.description}</p>
                 <motion.div
                 animate={{ rotate: 360 }}

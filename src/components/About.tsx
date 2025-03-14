@@ -1,7 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code2, Rocket, Users, Orbit, User } from 'lucide-react';
+import { Code2, Rocket, Users, Orbit } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const About = () => {
@@ -160,10 +160,13 @@ export const About = () => {
               className="cosmic-card p-8 hover:transform hover:-translate-y-2 transition-all duration-300"
             >
               <div className="cosmic-glow"></div>
-              <div className="text-purple-500 mb-4">
-                {feature.icon}
+              <div className="flex flex-row">
+                <div className="text-purple-500 mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl pl-6 font-semibold text-white mb-3">{feature.title}</h3>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+
               <p className="text-gray-400">{feature.description}</p>
             </motion.div>
           ))}
