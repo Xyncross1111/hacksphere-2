@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useGSAP } from '@gsap/react'
+import React, { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Timelineitem from './TimelineItem'
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(useGSAP);
 
 // Define interface for timeline items
 interface TimelineItemData {
@@ -19,6 +17,9 @@ interface TimelineItemData {
 
 export const Timeline: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Initialize window width after mount
   useEffect(() => {
@@ -81,39 +82,54 @@ export const Timeline: React.FC = () => {
     }
   ];
 
-  useGSAP(() => {
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".process-timeline",
-        start: "top 80%",
-        end: "top 75%",
-        scrub: 1,
-        fastScrollEnd: true,
-        preventOverlaps: true,
-      }
-    });
+  // Initialize itemRefs array with the correct length
+  useEffect(() => {
+    // Reset the refs array when timelineData changes
+    itemRefs.current = Array(timelineData.length).fill(null);
+  }, [timelineData.length]);
 
+  // GSAP animations
+  useEffect(() => {
     // Only run GSAP animations once the window width is properly initialized
-    if (windowWidth && windowWidth >= 1024) {
-      timeline.from(".timeline-progress-bar", {
+    if (windowWidth && windowWidth >= 1024 && timelineRef.current && progressBarRef.current) {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: timelineRef.current,
+          start: "top 80%",
+          end: "top 75%",
+          scrub: 1,
+          fastScrollEnd: true,
+          preventOverlaps: true,
+        }
+      });
+
+      timeline.from(progressBarRef.current, {
         opacity: 0,
         height: "0%",
       });
 
-      timelineData.forEach((item) => {
-        gsap.from(`.ti-${item.number}`, {
-          opacity: 0.4,
-          duration: 0.1,
-          scrollTrigger: {
-            trigger: `.timeline-trigger-${item.number}`,
-            start: "top 80%",
-            end: "bottom 60%",
-            scrub: 1,
-            fastScrollEnd: true,
-            preventOverlaps: true,
-          }
-        });
+      // Set up animations for each timeline item
+      itemRefs.current.forEach((ref, index) => {
+        if (ref) {
+          gsap.from(ref, {
+            opacity: 0.4,
+            duration: 0.1,
+            scrollTrigger: {
+              trigger: ref, // Use the actual ref as trigger instead of class name
+              start: "top 80%",
+              end: "bottom 60%",
+              scrub: 1,
+              fastScrollEnd: true,
+              preventOverlaps: true,
+            }
+          });
+        }
       });
+
+      // Clean up ScrollTrigger instances when component unmounts
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
     }
   }, [windowWidth]); // Re-run when windowWidth changes
 
@@ -131,25 +147,32 @@ export const Timeline: React.FC = () => {
           SCHEDULE
         </h2>
       </div>
-      <div className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-40">
+      <div ref={timelineRef} className="process-timeline flex flex-col justify-center items-center max-w-[80vw] md:max-w-[90vw] xl:max-w-[80vw] mx-auto relative mb-40">
         {/* Main timeline bar (background) */}
         <div className="timeline-progress absolute z-[-1] w-[3px] h-full left-[25px] md:left-auto bg-[#33123a]">
           {/* Animated progress bar (foreground) - modified to stop before reaching bottom */}
-          <div className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
+          <div ref={progressBarRef} className="timeline-progress-bar z-[-2] w-[3px] h-[52vh] fixed top-0 bg-gradient-to-b from-[#ff0000] via-[#f9b3ff] to-[#6400c2]"></div>
         </div>
 
         {/* Timeline content with higher z-index */}
         <div style={{ position: "relative", zIndex: 5 }} className="w-full">
           {timelineData.map((item, index) => (
-            <Timelineitem
+            <div 
               key={index}
-              step={item.step}
-              number={item.number}
-              heading={item.heading}
-              image={item.image}
-              description={item.description}
-              date={item.date}
-            />
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
+              className={`timeline-trigger-${item.number} ti-${item.number}`}
+            >
+              <Timelineitem
+                step={item.step}
+                number={item.number}
+                heading={item.heading}
+                image={item.image}
+                description={item.description}
+                date={item.date}
+              />
+            </div>
           ))}
         </div>
       </div>

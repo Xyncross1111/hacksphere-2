@@ -16,8 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "HackSphere 2.0",
-  description: "Unleash your Imagination",
-  colorScheme: "dark",
+  description: "Unleash your Imagination"
 };
 
 export default function RootLayout({
