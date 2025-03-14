@@ -95,7 +95,7 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
         >
           <h2>{props.heading}</h2>
           {/* Date for desktop view - positioned below heading */}
-          <div className="timeline-date text-[#9523ff] font-['Space Grotesk'] text-lg mt-1">
+          <div className="timeline-date text-[#e7a7c8] font-['Space Grotesk'] text-lg mt-1">
             {props.date}
           </div>
         </div>
