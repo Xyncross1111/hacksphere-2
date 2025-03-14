@@ -116,7 +116,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-semibold text-white mb-4">Stay Updated</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">Curious? Know more about us</h3>
             <motion.form
               onSubmit={handleSubmit}
               initial={{ y: 20, opacity: 0 }}

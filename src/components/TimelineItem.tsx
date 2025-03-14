@@ -5,7 +5,8 @@ interface TimelineItemProps {
   step: string;
   heading: string;
   image: string;
-  description: React.ReactNode;
+  description: string;
+  date: string;
 }
 
 const Timelineitem: React.FC<TimelineItemProps> = (props) => {
@@ -55,6 +56,10 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
             md:hidden"
           >
             <div>{props.heading}</div>
+            {/* Mobile date - shown only on mobile */}
+            <div className="timeline-mobile-date text-[#9523ff] font-['Space Grotesk'] text-base mt-1">
+              {props.date}
+            </div>
           </div>
         </div>
       </div>
@@ -89,6 +94,10 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
           xl:text-[2.5em]"
         >
           <h2>{props.heading}</h2>
+          {/* Date for desktop view - positioned below heading */}
+          <div className="timeline-date text-[#9523ff] font-['Space Grotesk'] text-lg mt-1">
+            {props.date}
+          </div>
         </div>
 
         {/* Image */}
@@ -104,7 +113,7 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
         </div>
 
         {/* Description */}
-        <div className="timeline-description font-['Space Grotesk'] text-justify w-full mt-4 leading-relaxed text-[#afafaf]
+        <div className="timeline-description font-['Space Grotesk'] mr-4 text-justify text-wrap w-full mt-4 leading-relaxed text-[#afafaf]
           max-sm:mb-3 max-sm:text-[0.9rem]
           sm:mb-6
           md:mb-0 md:text-base
