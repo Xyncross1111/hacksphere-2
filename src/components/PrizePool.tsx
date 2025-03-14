@@ -241,7 +241,7 @@ export const PrizePool = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Stickers</div>
               <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Certificates</div>
-              <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">Badges</div>
+              {/* <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">and many more</div> */}
             </div>
           </div>
           

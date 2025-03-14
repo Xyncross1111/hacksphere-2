@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
-const DefaultSponsors : Sponsor[] = [
+const DefaultSponsors: Sponsor[] = [
   {
     name: "DEVFOLIO",
     logo: "/devfolio.png",
@@ -31,9 +31,10 @@ export interface Sponsor {
 
 interface SponsorsProps {
   sponsors?: Sponsor[];
+  isPartner?: boolean;
 }
 
-export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors }) => {
+export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors, isPartner = false }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -42,34 +43,33 @@ export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors }) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-
     setDimensions({
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     });
 
     const handleResize = () => {
       setDimensions({
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
       });
     };
 
-    window.addEventListener('resize', handleResize);
-
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const starPositions = Array(20).fill(0).map(() => ({
-    x: Math.random() * 100, // Use percentage instead of absolute pixels
-    y: Math.random() * 100,
-    duration: Math.random() * 5 + 5
-  }));
+  const starPositions = Array(20)
+    .fill(0)
+    .map(() => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      duration: Math.random() * 5 + 5,
+    }));
 
   return (
-
     <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
       <div className="absolute inset-0">
         {starPositions.map((pos, i) => (
@@ -77,19 +77,9 @@ export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors }) => {
             key={i}
             className="star"
             initial={{ opacity: 0.1 }}
-            animate={{
-              opacity: [0.1, 0.5, 0.1],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: pos.duration,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{
-              left: `${pos.x}%`,
-              top: `${pos.y}%`
-            }}
+            animate={{ opacity: [0.1, 0.5, 0.1], scale: [1, 1.2, 1] }}
+            transition={{ duration: pos.duration, repeat: Infinity, ease: "linear" }}
+            style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
           />
         ))}
       </div>
@@ -100,7 +90,7 @@ export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors }) => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold text-white text-center mb-16"
         >
-          Mission Supporters
+          {isPartner ? "Mission Partners" : "Mission Supporters"}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -120,7 +110,7 @@ export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors }) => {
                 className="h-24 w-auto mb-4"
               />
               <h3 className="text-xl font-semibold text-white">{sponsor.name}</h3>
-              <p className="text-purple-400">{sponsor.tier} Sponsor</p>
+              <p className="text-purple-400">{sponsor.tier} {isPartner ? "Partner" : "Sponsor"}</p>
             </motion.div>
           ))}
         </div>

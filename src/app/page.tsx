@@ -25,7 +25,7 @@ function App() {
       <Gallery />
       <Timeline />
       <Sponsors />
-      <Sponsors sponsors={DefaultPartners}/>
+      <Sponsors isPartner sponsors={DefaultPartners}/>
       <Domains />
       <PrizePool />
       <FAQ />
