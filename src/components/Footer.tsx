@@ -188,12 +188,12 @@ export function Footer() {
         
         {/* Bottom credits */}
         <motion.div 
-          className="border-t border-gray-800 pt-6 mt-6 text-center text-black text-sm"
+          className="border-t border-gray-800 pt-6 mt-6 text-center text-white text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-black">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-white">
             <p>© {new Date().getFullYear()} HackSphere. All rights reserved.</p>
             <div className="flex items-center mt-3 md:mt-0">
               <p>Made with </p>
