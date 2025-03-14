@@ -202,7 +202,7 @@ export function Footer() {
               >
                 <Star className="h-4 w-4 text-purple-500 inline" />
               </motion.div>
-              <p>by The Code Brewers</p>
+              <p>by TheCodeBreakers</p>
             </div>
           </div>
         </motion.div>
