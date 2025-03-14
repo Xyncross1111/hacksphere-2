@@ -2,10 +2,10 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Github, Send, Code, Star } from "lucide-react"
+import { Send, Code, Star } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import {FaInstagram } from "react-icons/fa" 
 import Image from "next/image"
-import { IoLogoInstagram } from "react-icons/io5";
 
 export function Footer() {
   const [email, setEmail] = useState("")
@@ -36,7 +36,8 @@ export function Footer() {
         style={{
           position: "absolute",
           zIndex: 0,
-          background: "linear-gradient(45deg, rgba(19, 51, 234, 0.1), #3b82f6)"
+          background: "linear-gradient(45deg, #9333ea, #3b82f6)",
+          opacity : 0.3 
         }}
       />
 
@@ -81,7 +82,7 @@ export function Footer() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="md:text-gray-400 text-center md:text-left text-black"
+              className="text-gray-400 text-center md:text-left"
             >
               RBU's only student-run hackathon bringing together tech enthusiasts for 8 hours of innovation and problem-solving.
             </motion.p>
@@ -166,8 +167,7 @@ export function Footer() {
               transition={{ delay: 0.4, duration: 0.5 }}
             >
               {[
-                { icon: <Github className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "GitHub" },
-                { icon: <IoLogoInstagram className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "Instagram" },
+                { icon: <FaInstagram className="h-5 w-5" />, href: "https://github.com/YourGithub", label: "GitHub" },
                 { icon: <Code className="h-5 w-5" />, href: "https://devfolio.co/hacksphere2", label: "Devfolio" },
               ].map((social, i) => (
                 <motion.a
@@ -188,23 +188,24 @@ export function Footer() {
         
         {/* Bottom credits */}
         <motion.div 
-          className="border-t border-gray-800 pt-6 mt-6 text-center text-black text-sm"
+          className="border-t border-gray-800 pt-6 mt-6 text-center text-gray-500 text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-black">
-            <p>© {new Date().getFullYear()} HackSphere. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center">
+            <p 
+            className="text-1.5xl font-semibold text-white mb-4">© {new Date().getFullYear()} HackSphere. All rights reserved.</p>
             <div className="flex items-center mt-3 md:mt-0">
-              <p>Made with </p>
+              <p className="text-1.5xl font-bold bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] text-transparent bg-clip-text mb-3">Made with </p>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ repeat: Infinity, duration: 2 }}
                 className="mx-1"
               >
-                <Star className="h-4 w-4 text-purple-500 inline" />
+                <Star className="h-4 w-4 text-purple-500 inline mb-2" />
               </motion.div>
-              <p>by TheCodeBreakers</p>
+              <p className="text-1.5xl font-bold bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] text-transparent bg-clip-text mb-3">by TheCodeBreakers</p>
             </div>
           </div>
         </motion.div>
