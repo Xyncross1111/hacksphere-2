@@ -1,4 +1,6 @@
-import { useEffect, useRef } from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 
 interface DevfolioButtonProps {
   hackathonSlug: string;
@@ -12,8 +14,10 @@ export const DevfolioButton = ({
   className = "",
 }: DevfolioButtonProps) => {
   const buttonRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const script = document.createElement('script');
     script.src = 'https://apply.devfolio.co/v2/sdk.js';
     script.async = true;
@@ -22,7 +26,12 @@ export const DevfolioButton = ({
     return () => {
       document.body.removeChild(script);
     }
-}, []);
+  }, []);
+
+  // Only render the button on the client side to avoid hydration mismatch
+  if (!isMounted) {
+    return <div className={`apply-button-container ${className}`} ref={buttonRef}></div>;
+  }
 
   return (
     <div className={`apply-button-container ${className}`} ref={buttonRef}>

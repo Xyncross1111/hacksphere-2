@@ -2,10 +2,8 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Github, Send, Code, Star } from "lucide-react"
+import { Github, Send, Code, Star, Instagram } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import { IoLogoInstagram } from "react-icons/io5";
 
 export function Footer() {
   const [email, setEmail] = useState("")
@@ -167,7 +165,7 @@ export function Footer() {
             >
               {[
                 { icon: <Github className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "GitHub" },
-                { icon: <IoLogoInstagram className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "Instagram" },
+                { icon: <Instagram className="h-5 w-5" />, href: "https://github.com/TheCodeBeakers", label: "Instagram" },
                 { icon: <Code className="h-5 w-5" />, href: "https://devfolio.co/hacksphere2", label: "Devfolio" },
               ].map((social, i) => (
                 <motion.a
