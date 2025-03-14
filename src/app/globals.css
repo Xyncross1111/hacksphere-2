@@ -168,3 +168,15 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+
+
+:root {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: dark;
+  }
+}
