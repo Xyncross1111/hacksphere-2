@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Orbitron, Space_Grotesk } from "next/font/google";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const orbitron = Orbitron({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
          className={`${spaceGrotesk.className} ${orbitron.className}`}
       >
+        <Navbar />
         {children}
         <Footer/>
       </body>

@@ -51,7 +51,7 @@ export const FAQ = () => {
   ];
 
   return (
-    <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
+    <section ref={ref} id="faq" className="py-20 space-gradient relative overflow-hidden">
       {/* Animated stars - reduced count */}
       <div className="absolute inset-0">
         {starPositions.map((position, i) => (

@@ -70,7 +70,7 @@ export const Sponsors: FC<SponsorsProps> = ({ sponsors = DefaultSponsors, isPart
     }));
 
   return (
-    <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
+    <section ref={ref} id="partners" className="py-20 space-gradient relative overflow-hidden">
       <div className="absolute inset-0">
         {starPositions.map((pos, i) => (
           <motion.div

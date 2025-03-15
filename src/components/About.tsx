@@ -86,7 +86,7 @@ export const About = () => {
   }));
 
   return (
-    <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
+    <section ref={ref} id="about" className="py-20 space-gradient relative overflow-hidden">
       {/* Animated stars - with safe positioning */}
       <div className="absolute inset-0">
         {starPositions.map((pos, i) => (

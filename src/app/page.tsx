@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { Hero } from '../components/Hero';
 import { About } from '../components/About';
-import { Gallery } from '../components/Gallery';
+import { Memories } from '../components/Memories';
 import { Timeline } from '../components/Timeline';
 import { Domains } from '../components/Domains';
 import { PrizePool } from '../components/PrizePool';
@@ -22,7 +22,7 @@ function App() {
     <div suppressHydrationWarning>
       <Hero />
       <About />
-      <Gallery />
+      <Memories />
       <Timeline />
       <Sponsors isPartner sponsors={DefaultPartners}/>
       <Domains />

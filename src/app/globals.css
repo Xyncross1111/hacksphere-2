@@ -132,11 +132,6 @@ main {
   animation: twinkle 3s infinite;
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Space Dust Particles */
 @keyframes float {
   0%, 100% {
@@ -168,8 +163,6 @@ html {
     scroll-behavior: auto !important;
   }
 }
-
-
 
 :root {
   color-scheme: dark;

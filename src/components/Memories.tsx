@@ -3,36 +3,63 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { MemoriesCard } from "./MemoriesCard";
-import { Memories } from "@/data/Memories";
 
-export const Gallery = () => {
+const memories = [
+  {
+    message: "HackSphere 1.0",
+    name: "GDG",
+    src: "/assets/images/img1.webp",
+  },
+  {
+    message: "HackSphere 1.0",
+    name: "ACM",
+    src: "/assets/images/img2.webp",
+  },
+  {
+    message: "HackSphere 1.0",
+    name: "GFG",
+    src: "/assets/images/img6.webp",
+  },
+  {
+    message: "HackSphere 1.0",
+    name: "BRC",
+    src: "/assets/images/img4.webp",
+  },
+  {
+    message: "HackSphere 1.0",
+    name: "BRC",
+    src: "/assets/images/img5.webp",
+  },
+];
+
+export const Memories = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  
-    useEffect(() => {
-      // Set dimensions once mounted (client-side only)
+
+  useEffect(() => {
+    // Set dimensions once mounted (client-side only)
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+
+    const handleResize = () => {
       setDimensions({
         width: window.innerWidth,
         height: window.innerHeight
       });
-  
-      const handleResize = () => {
-        setDimensions({
-          width: window.innerWidth,
-          height: window.innerHeight
-        });
-      };
-  
-      window.addEventListener('resize', handleResize);
-  
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const starPositions = Array(20).fill(0).map(() => ({
     x: Math.random() * 100, // Use percentage instead of absolute pixels
@@ -41,7 +68,7 @@ export const Gallery = () => {
   }));
 
   return (
-    <section ref={ref} className="space-gradient py-6 md:py-20 relative overflow-hidden">
+    <section ref={ref} id="memories" className="space-gradient py-6 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0">
         {starPositions.map((pos, i) => (
           <motion.div
@@ -75,7 +102,7 @@ export const Gallery = () => {
         </motion.h2>
 
         <div className="">
-          <MemoriesCard testimonials={Memories} />
+          <MemoriesCard testimonials={memories} />
         </div>
       </div>
     </section>

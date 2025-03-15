@@ -66,7 +66,7 @@ export const PrizePool = () => {
   ];
 
   return (
-    <section ref={ref} className="py-20 space-gradient relative overflow-hidden">
+    <section ref={ref} id="prizes" className="py-20 space-gradient relative overflow-hidden">
       {/* Animated stars with different sizes */}
       <div className="absolute inset-0">
         {stars.map((star, i) => (

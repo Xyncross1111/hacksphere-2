@@ -45,7 +45,7 @@ export const Domains = () => {
   }));
 
   return (
-    <section ref={ref} className="py-6 md:py-20 space-gradient relative overflow-hidden">
+    <section ref={ref} id="domains" className="py-6 md:py-20 space-gradient relative overflow-hidden">
       {/* Animated stars - reduced count */}
       <div className="absolute inset-0">
         {starPositions.map((pos, i) => (
