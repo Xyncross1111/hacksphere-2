@@ -1,86 +1,57 @@
+"use client";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Trophy, Award, Medal, Sparkles } from 'lucide-react';
-import { useEffect, useState } from 'react';
+
+const prizes = [
+  {
+    icon: <Trophy className="w-12 h-12" />,
+    position: "1st Prize",
+    amount: "₹7,000",
+    color: "from-yellow-400 to-yellow-600",
+    benefits: ["Certificate of Excellence", "Premium Swag Kit", "Mentorship Session"]
+  },
+  {
+    icon: <Award className="w-12 h-12" />,
+    position: "2nd Prize",
+    amount: "₹5,000",
+    color: "from-gray-300 to-gray-500",
+    benefits: ["Certificate of Merit", "Swag Kit", "Networking Opportunity"]
+  },
+  {
+    icon: <Medal className="w-12 h-12" />,
+    position: "3rd Prize",
+    amount: "₹3,000",
+    color: "from-orange-400 to-orange-600",
+    benefits: ["Certificate of Achievement", "Swag Items"]
+  }
+];
 
 export const PrizePool = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-  
-  const [stars, setStars] = useState<{x: number, y: number, duration: number, size: number}[]>([]);
-  
-  useEffect(() => {
-    // Generate star positions only on the client side
-    setStars(
-      Array.from({ length: 25 }, () => ({
-        x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-        y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-        duration: Math.random() * 5 + 5,
-        size: Math.random() * 3 + 1
-      }))
-    );
-  }, []);
-
-  const prizes = [
-    {
-      icon: <Trophy className="w-12 h-12" />,
-      position: "1st Prize",
-      amount: "₹7,000",
-      color: "from-yellow-400 to-yellow-600",
-      benefits: ["Certificate of Excellence", "Premium Swag Kit", "Mentorship Session"]
-    },
-    {
-      icon: <Award className="w-12 h-12" />,
-      position: "2nd Prize",
-      amount: "₹5,000",
-      color: "from-gray-300 to-gray-500",
-      benefits: ["Certificate of Merit", "Swag Kit", "Networking Opportunity"]
-    },
-    {
-      icon: <Medal className="w-12 h-12" />,
-      position: "3rd Prize",
-      amount: "₹3,000",
-      color: "from-orange-400 to-orange-600",
-      benefits: ["Certificate of Achievement", "Swag Items"]
-    }
-  ];
-
-  const sponsoredPrizes = [
-    {
-      name: "Best UI/UX",
-      amount: "₹2,000",
-      sponsor: "DesignLab"
-    },
-    {
-      name: "Most Innovative",
-      amount: "₹2,000",
-      sponsor: "TechInnovate"
-    },
-    {
-      name: "Best Use of AI",
-      amount: "₹2,000",
-      sponsor: "AIFuture"
-    }
-  ];
 
   return (
     <section ref={ref} id="prizes" className="py-20 space-gradient relative overflow-hidden">
       {/* Animated stars with different sizes */}
-      <div className="absolute inset-0">
-        {stars.map((star, i) => (
+      <div className="absolute inset-0 z-0">
+        {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="star rounded-full bg-white"
-            style={{ width: star.size, height: star.size }}
-            initial={{ opacity: 0.1, x: star.x, y: star.y }}
+            className="star absolute h-1 w-1 rounded-full bg-white"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: 0.1,
+            }}
             animate={{
-              opacity: [0.1, 0.8, 0.1],
-              scale: [1, 1.3, 1],
+              opacity: [0.1, 0.5, 0.1],
+              scale: [1, 1.2, 1]
             }}
             transition={{
-              duration: star.duration,
+              duration: Math.random() * 5 + 2,
               repeat: Infinity,
               ease: "linear"
             }}
@@ -90,9 +61,9 @@ export const PrizePool = () => {
 
       {/* Nebula effects */}
       <div className="absolute inset-0 opacity-10">
-        <div className="nebula top-1/4 left-1/4 w-96 h-96" 
+        <div className="nebula top-1/4 left-1/4 w-96 h-96"
           style={{ background: 'linear-gradient(45deg, #3b82f6, #9333ea)' }} />
-        <div className="nebula bottom-1/3 right-1/4 w-96 h-96" 
+        <div className="nebula bottom-1/3 right-1/4 w-96 h-96"
           style={{ background: 'linear-gradient(45deg, #ec4899, #8b5cf6)' }} />
       </div>
 
@@ -132,10 +103,10 @@ export const PrizePool = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-70 transition-opacity" />
               <div className="relative cosmic-card p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
                 <div className="cosmic-glow"></div>
-                
+
                 {/* Medal indicators for each position */}
                 {index === 0 && (
-                  <motion.div 
+                  <motion.div
                     className="absolute -top-4 -right-4 bg-yellow-500 rounded-full p-2 shadow-lg shadow-yellow-500/50"
                     animate={{ rotate: [0, 10, 0, -10, 0], scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -144,7 +115,7 @@ export const PrizePool = () => {
                   </motion.div>
                 )}
                 {index === 1 && (
-                  <motion.div 
+                  <motion.div
                     className="absolute -top-4 -right-4 bg-gray-400 rounded-full p-2 shadow-lg shadow-gray-400/50"
                     animate={{ rotate: [0, 8, 0, -8, 0], scale: [1, 1.05, 1] }}
                     transition={{ duration: 2.5, repeat: Infinity }}
@@ -153,7 +124,7 @@ export const PrizePool = () => {
                   </motion.div>
                 )}
                 {index === 2 && (
-                  <motion.div 
+                  <motion.div
                     className="absolute -top-4 -right-4 bg-orange-500 rounded-full p-2 shadow-lg shadow-orange-500/50"
                     animate={{ rotate: [0, 5, 0, -5, 0] }}
                     transition={{ duration: 3, repeat: Infinity }}
@@ -161,14 +132,14 @@ export const PrizePool = () => {
                     <Medal className="w-4 h-4 text-white" />
                   </motion.div>
                 )}
-                
+
                 {/* Position ribbon */}
                 <div className="absolute -left-2 top-4 bg-gradient-to-r from-purple-600 to-blue-600 px-3 py-1 rounded-r-md shadow-md">
                   <span className="text-xs font-bold text-white">
                     {index === 0 ? "GOLD" : index === 1 ? "SILVER" : "BRONZE"}
                   </span>
                 </div>
-                
+
                 <div className={`text-gradient bg-gradient-to-r ${prize.color} bg-clip-text text-transparent mb-6`}>
                   {prize.icon}
                 </div>
@@ -176,7 +147,7 @@ export const PrizePool = () => {
                 <p className="text-4xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text mb-6">
                   {prize.amount}
                 </p>
-                
+
                 {/* Added benefits list */}
                 {/* <div className="border-t border-purple-800 pt-4 mt-4">
                   <h4 className="text-sm font-semibold text-purple-300 mb-2">Benefits Include:</h4>
@@ -244,7 +215,7 @@ export const PrizePool = () => {
               {/* <div className="bg-purple-900/50 px-4 py-2 rounded-full text-sm text-white">and many more</div> */}
             </div>
           </div>
-          
+
           <p className="inline-flex items-center text-purple-400 hover:text-purple-300 mt-6 transition-colors">
             See you soon!
           </p>

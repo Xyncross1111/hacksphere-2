@@ -46,7 +46,7 @@ export default function DigitalSwag() {
   useEffect(() => {
     if (!canvas) return
     const image = new Image()
-    image.src = "data/template.png"
+    image.src = "/assets/swag/template.png"
     image.onload = () => {
       const fabricImage = new FabricImage(image)
       fabricImage.scaleToWidth(canvasSize.width)

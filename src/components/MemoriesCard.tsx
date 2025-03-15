@@ -44,7 +44,7 @@ export const MemoriesCard = ({
                   scale: isActive(index) ? 1 : 0.95,
                   rotate: isActive(index) ? 0 : randomRotateY(),
                   zIndex: isActive(index) ? 999 : testimonials.length + 2 - index,
-                  y: isActive(index) ? [0, -40, 10] : 13*index,
+                  y: isActive(index) ? [0, -40, 10] : 13 * index,
                 }}
                 exit={{ opacity: 0, scale: 0.9, rotate: randomRotateY() }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}

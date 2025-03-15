@@ -85,35 +85,6 @@ export function Footer() {
             </motion.p>
           </div>
 
-          {/* Quick links */}
-          {/* <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="flex flex-col space-y-2">
-              {[
-                { name: "About", href: "#about" },
-                { name: "Timeline", href: "#schedule" },
-                { name: "Prizes", href: "#prizes" },
-                { name: "Gallery", href: "#gallery" },
-                { name: "FAQ", href: "#faq" },
-              ].map((link, i) => (
-                <motion.li 
-                  key={link.name}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 * i, duration: 0.5 }}
-                >
-                  <a 
-                    href={link.href} 
-                    className="text-gray-400 hover:text-purple-300 flex items-center"
-                  >
-                    <span className="mr-2">›</span>
-                    {link.name}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </div> */}
-
           {/* Newsletter */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-xl font-semibold text-white mb-4">Curious? Know more about us</h3>

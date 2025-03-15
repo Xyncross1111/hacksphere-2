@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { MemoriesCard } from "./MemoriesCard";
@@ -8,27 +7,27 @@ const memories = [
   {
     message: "HackSphere 1.0",
     name: "GDG",
-    src: "/assets/images/img1.webp",
+    src: "/assets/images/memories/img1.webp",
   },
   {
     message: "HackSphere 1.0",
     name: "ACM",
-    src: "/assets/images/img2.webp",
+    src: "/assets/images/memories/img2.webp",
   },
   {
     message: "HackSphere 1.0",
     name: "GFG",
-    src: "/assets/images/img6.webp",
+    src: "/assets/images/memories/img3.webp",
   },
   {
     message: "HackSphere 1.0",
     name: "BRC",
-    src: "/assets/images/img4.webp",
+    src: "/assets/images/memories/img4.webp",
   },
   {
     message: "HackSphere 1.0",
     name: "BRC",
-    src: "/assets/images/img5.webp",
+    src: "/assets/images/memories/img5.webp",
   },
 ];
 
@@ -37,29 +36,6 @@ export const Memories = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    // Set dimensions once mounted (client-side only)
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const starPositions = Array(20).fill(0).map(() => ({
     x: Math.random() * 100, // Use percentage instead of absolute pixels

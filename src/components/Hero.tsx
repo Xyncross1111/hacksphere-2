@@ -1,65 +1,34 @@
-"use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Rocket, Stars, Orbit } from "lucide-react";
-import { useState, useEffect } from "react";
 
 export const Hero = () => {
-  // State to store window dimensions
-  const [dimensions, setDimensions] = useState({ width: 1200, height: 800 });
-  // State to store star positions
-  const [stars, setStars] = useState<Array<{ x: number; y: number }>>([]);
-
-  // Get window dimensions and calculate star positions on client-side only
-  useEffect(() => {
-    // Update dimensions
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-
-    // Generate star positions
-    const starPositions = [...Array(100)].map(() => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-    }));
-
-    setStars(starPositions);
-
-    // Optional: Add resize handler if needed
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className="relative min-h-screen space-gradient overflow-hidden">
-      {/* Animated stars */}
-      <div className="absolute inset-0">
-        {stars.map((position, i) => (
+
+      <div className="absolute inset-0 z-0">
+        {[...Array(100)].map((_, i) => (
           <motion.div
             key={i}
-            className="star"
-            initial={{ opacity: 0.1, x: position.x, y: position.y }}
+            className="star absolute h-1 w-1 rounded-full bg-white"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: 0.1,
+            }}
             animate={{
               opacity: [0.1, 0.5, 0.1],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.2, 1]
             }}
             transition={{
               duration: Math.random() * 5 + 2,
               repeat: Infinity,
-              ease: "linear",
+              ease: "linear"
             }}
           />
         ))}
       </div>
-
       {/* Nebula effects */}
       <div className="absolute inset-0">
         <div className="nebula top-1/4 left-1/4 w-96 h-96 opacity-40" />
@@ -132,16 +101,16 @@ export const Hero = () => {
         </motion.p>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
-          <Link 
+          <Link
             href="https://unstop.com/hackathons/hacksphere-20-shri-ramdeobaba-college-of-engineering-and-management-rcoem-nagpur-1427361"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
             className="px-10 py-4 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded-md text-lg tracking-wide shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
           >
             REGISTER NOW
           </Link>
         </motion.div>
-        
+
 
         <motion.div
           initial={{ opacity: 0 }}

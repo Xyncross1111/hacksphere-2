@@ -1,23 +1,13 @@
+"use client";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { BriefcaseMedical, GraduationCap, ShieldCheck, CircleSlash2} from 'lucide-react';
-import { useEffect, useState } from 'react';
 
 export const Domains = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [dimensions, setDimensions] = useState({ width: 1000, height: 800 });
-
-  useEffect(() => {
-    // Set dimensions only after component mounts
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  }, []);
 
   const domains = [
     {
@@ -37,28 +27,26 @@ export const Domains = () => {
     }
   ];
 
-  // Pre-calculate random positions for stars to maintain consistency
-  const starPositions = [...Array(15)].map(() => ({
-    x: Math.random() * dimensions.width,
-    y: Math.random() * dimensions.height,
-    duration: Math.random() * 5 + 5
-  }));
 
   return (
     <section ref={ref} id="domains" className="py-6 md:py-20 space-gradient relative overflow-hidden">
       {/* Animated stars - reduced count */}
-      <div className="absolute inset-0">
-        {starPositions.map((pos, i) => (
+      <div className="absolute inset-0 z-0">
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="star"
-            initial={{ opacity: 0.1, x: pos.x, y: pos.y }}
+            className="star absolute h-1 w-1 rounded-full bg-white"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: 0.1,
+            }}
             animate={{
               opacity: [0.1, 0.5, 0.1],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.2, 1]
             }}
             transition={{
-              duration: pos.duration,
+              duration: Math.random() * 5 + 2,
               repeat: Infinity,
               ease: "linear"
             }}

@@ -2,36 +2,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Rocket, Users, Orbit } from 'lucide-react';
-import { useEffect, useState } from 'react';
 
 export const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    // Set dimensions once mounted (client-side only)
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const features = [
     {
@@ -78,34 +54,27 @@ export const About = () => {
     }
   };
 
-  // Generate random positions that don't depend on window during render
-  const starPositions = Array(20).fill(0).map(() => ({
-    x: Math.random() * 100, // Use percentage instead of absolute pixels
-    y: Math.random() * 100,
-    duration: Math.random() * 5 + 5
-  }));
-
   return (
     <section ref={ref} id="about" className="py-20 space-gradient relative overflow-hidden">
       {/* Animated stars - with safe positioning */}
-      <div className="absolute inset-0">
-        {starPositions.map((pos, i) => (
+      <div className="absolute inset-0 z-0">
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="star"
-            initial={{ opacity: 0.1 }}
+            className="star absolute h-1 w-1 rounded-full bg-white"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: 0.1,
+            }}
             animate={{
               opacity: [0.1, 0.5, 0.1],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.2, 1]
             }}
             transition={{
-              duration: pos.duration,
+              duration: Math.random() * 5 + 2,
               repeat: Infinity,
               ease: "linear"
-            }}
-            style={{
-              left: `${pos.x}%`,
-              top: `${pos.y}%`
             }}
           />
         ))}
