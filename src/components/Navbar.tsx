@@ -26,7 +26,7 @@ export const Navbar = () => {
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center gap-2">
                         <Image
-                            src="/icon.png"
+                            src="/favicon.ico"
                             alt="HackSphere"
                             width={200}
                             height={200}
