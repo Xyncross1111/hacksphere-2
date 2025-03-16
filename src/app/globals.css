@@ -61,6 +61,7 @@ main {
   background: linear-gradient(to bottom, #0f0f1a, #1a1a2e, #0f0f1a);
 }
 
+
 .star {
   @apply absolute w-1 h-1 bg-white rounded-full;
   box-shadow: 0 0 5px #fff, 0 0 10px #fff;

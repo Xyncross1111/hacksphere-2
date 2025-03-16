@@ -21,7 +21,7 @@ export const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed font-['Orbitron'] w-full z-50 bg-black shadow-lg">
+        <nav className="sticky top-0 font-['Orbitron'] bg-black drop-shadow-lg w-full z-50 shadow-lg">
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center">
