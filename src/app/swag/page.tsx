@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from 'framer-motion';
 import { Canvas, FabricImage, Text } from "fabric"
 import html2canvas from "html2canvas"
-import swag from "@/../public/assets/images/swag/template.png"
 
 interface CanvasSize {
   width: number;
@@ -47,7 +46,7 @@ export default function DigitalSwag() {
   useEffect(() => {
     if (!canvas) return
     const image = new Image()
-    image.src = "/assets/swag/template.png"
+    image.src = "/assets/images/swag/template.png"
     image.onload = () => {
       const fabricImage = new FabricImage(image)
       fabricImage.scaleToWidth(canvasSize.width)

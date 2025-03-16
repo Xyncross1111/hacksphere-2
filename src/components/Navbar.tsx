@@ -19,7 +19,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="fixed font-['Space Grotesk'] w-full z-50 bg-black shadow-lg"
+            className="fixed font-['Orbitron'] w-full z-50 bg-black shadow-lg"
         >
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
@@ -49,12 +49,12 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    {/* <a
+                    <Link
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity"
                     >
                         SWAG
-                    </a> */}
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -105,13 +105,13 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    {/* <a
+                    <Link
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity text-center"
                         onClick={() => setMenuOpen(false)}
                     >
                         SWAG
-                    </a> */}
+                    </Link>
                 </div>
             </div>
         </nav>
