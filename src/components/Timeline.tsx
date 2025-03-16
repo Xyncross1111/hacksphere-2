@@ -35,7 +35,7 @@ const timelineData: TimelineItemData[] = [
   {
     step: "STEP",
     number: 3,
-    heading: "Shortlisted Team Announcement",
+    heading: "Shortlisted Teams",
     image: "/assets/announcement.webp",
     description: "After a thorough evaluation of each PPT submitted by the teams and ensuring a fair and comprehensive review of all submissions , The shortlisted teams will be announced on 21st March. For those who didn’t make it this time, don’t be disheartened—every experience is a step toward success. Keep building, keep learning, and we look forward to seeing you in the next HackSphere!",
     date: "21st March"

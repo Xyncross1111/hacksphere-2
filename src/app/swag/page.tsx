@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from 'framer-motion';
 import { Canvas, FabricImage, Text } from "fabric"
 import html2canvas from "html2canvas"
+import swag from "@/../public/assets/images/swag/template.png"
 
 interface CanvasSize {
   width: number;

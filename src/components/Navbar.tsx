@@ -19,18 +19,18 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="fixed font-['Space Grotesk'] w-full z-50 bg-black py-3 shadow-lg"
+            className="fixed font-['Space Grotesk'] w-full z-50 bg-black shadow-lg"
         >
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center gap-2">
                         <Image
-                            src="/favicon.ico"
+                            src="/icon.png"
                             alt="HackSphere"
-                            width={40}
-                            height={40}
-                            className="h-10 w-auto"
+                            width={200}
+                            height={200}
+                            className="h-20 w-auto "
                         />
                         <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             HackSphere
@@ -39,7 +39,7 @@ export const Navbar = () => {
                 </div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex space-x-6">
+                <div className="hidden md:flex space-x-6 items-center">
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
@@ -49,12 +49,12 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <a
+                    {/* <a
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity"
                     >
                         SWAG
-                    </a>
+                    </a> */}
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -94,7 +94,7 @@ export const Navbar = () => {
                 className={`md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md transition-all duration-300 ${menuOpen ? 'max-h-[500px] py-4' : 'max-h-0 overflow-hidden'
                     }`}
             >
-                <div className="container mx-auto px-4 flex flex-col space-y-4">
+                <div className="container mx-auto px-4 flex flex-col space-y-4 ">
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
@@ -105,13 +105,13 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <a
+                    {/* <a
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity text-center"
                         onClick={() => setMenuOpen(false)}
                     >
                         SWAG
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </nav>
