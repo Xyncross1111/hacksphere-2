@@ -45,6 +45,8 @@ export default function DigitalSwag() {
 
   useEffect(() => {
     if (!canvas) return
+    
+    // Load template image
     const image = new Image()
     image.src = "/assets/images/swag/template.png"
     image.onload = () => {
@@ -57,6 +59,40 @@ export default function DigitalSwag() {
       })
       canvas.add(fabricImage)
       setImageLoaded(true)
+      canvas.renderAll()
+    }
+    
+    // Load the placeholder background image
+    const placeholderImage = new Image()
+    placeholderImage.src = "/assets/images/swag/place_holder.webp" // Update this path to match your project structure
+    placeholderImage.onload = () => {
+      const fabricImg = new FabricImage(placeholderImage)
+
+      // Calculate image dimensions based on percentages
+      const imageWidthPercent = 68 // 68% of canvas width
+      const scale = (canvasSize.width * (imageWidthPercent / 100)) / placeholderImage.width
+
+      // Position at center by default (50% of width, 41.3% of height)
+      const leftPercent = 50
+      const topPercent = 41.3
+
+      // Convert percentages to actual pixel values for fabric.js
+      const centerX = canvasSize.width * (leftPercent / 100)
+      const centerY = canvasSize.height * (topPercent / 100)
+
+      // Set image properties
+      fabricImg.set({
+        left: centerX,
+        top: centerY,
+        originX: "center",
+        originY: "center",
+        scaleX: scale,
+        scaleY: scale,
+      })
+
+      // Store reference and add to canvas
+      imgRef.current = fabricImg
+      canvas.backgroundImage = fabricImg
       canvas.renderAll()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

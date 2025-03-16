@@ -1,11 +1,14 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isSwagPage = pathname === '/swag';
 
     const navItems = [
         { label: 'About', href: '#about' },
@@ -18,19 +21,17 @@ export const Navbar = () => {
     ];
 
     return (
-        <nav
-            className="fixed font-['Orbitron'] w-full z-50 bg-black shadow-lg"
-        >
+        <nav className="fixed font-['Orbitron'] w-full z-50 bg-black shadow-lg">
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center gap-2">
                         <Image
-                            src="/favicon.ico"
+                            src="/hacksphere.png"
                             alt="HackSphere"
                             width={200}
                             height={200}
-                            className="h-20 w-auto "
+                            className="h-20 w-auto"
                         />
                         <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             HackSphere
@@ -43,7 +44,7 @@ export const Navbar = () => {
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
-                            href={item.href}
+                            href={isSwagPage ? `/${item.href}` : item.href}
                             className="text-gray-300 hover:text-white transition-colors duration-300"
                         >
                             {item.label}
@@ -91,14 +92,15 @@ export const Navbar = () => {
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md transition-all duration-300 ${menuOpen ? 'max-h-[500px] py-4' : 'max-h-0 overflow-hidden'
-                    }`}
+                className={`md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md transition-all duration-300 ${
+                    menuOpen ? 'max-h-[500px] py-4' : 'max-h-0 overflow-hidden'
+                }`}
             >
-                <div className="container mx-auto px-4 flex flex-col space-y-4 ">
+                <div className="container mx-auto px-4 flex flex-col space-y-4">
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
-                            href={item.href}
+                            href={isSwagPage ? `/${item.href}` : item.href}
                             className="text-gray-300 hover:text-white py-2 transition-colors duration-300"
                             onClick={() => setMenuOpen(false)}
                         >
