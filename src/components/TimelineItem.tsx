@@ -43,14 +43,14 @@ const Timelineitem: React.FC<TimelineItemProps> = (props) => {
             sm:top-[-489%] sm:left-[-2%]
             md:-top-full md:-bottom-full md:left-[15%] md:text-[7em] md:leading-[150px]
             lg:text-[10em] lg:left-[20%]
-            xl:text-[12em] xl:left-1/4"
+            xl:text-[12em] xl:left-1/4 max-md:hidden"
           >
             {props.number}
           </div>
 
           {/* Mobile heading - shown only on mobile */}
           <div className="timeline-mobile-heading text-left text-white font-['Orbitron'] font-semibold leading-[1.3]
-            ml-16 mt-1 mb-5
+           mt-1 mb-5
             max-[425px]:text-[1.5em]
             max-sm:text-[1.8em]
             md:hidden"
