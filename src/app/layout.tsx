@@ -4,6 +4,7 @@ import { Orbitron, Space_Grotesk } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const orbitron = Orbitron({
   variable: '--font-orbitron',
@@ -38,6 +39,7 @@ export default function RootLayout({
         {children}
         <Footer/>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
