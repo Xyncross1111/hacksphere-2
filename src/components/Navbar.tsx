@@ -50,13 +50,13 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <Link
+                    {/* <Link
                         href="/result"
                         className="px-5 py-2 bg-gradient-to-r from-green-500 to-pink-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity text-center"
                         onClick={() => setMenuOpen(false)}
                     >
                         RESULTS
-                    </Link>
+                    </Link> */}
                     <Link
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity"
