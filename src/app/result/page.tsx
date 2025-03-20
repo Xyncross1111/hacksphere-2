@@ -23,8 +23,16 @@ const hackathonEntries = [
     { id: 17, team: "Runtime Terrors", position: 17, category: "MED" },
     { id: 18, team: "DevPair", position: 18, category: "MED" },
     { id: 19, team: "SymbiSparkk", position: 19, category: "ED" },
-    { id: 20, team: "Undefined", position: 20, category: "MED" }
+    { id: 20, team: "Undefined", position: 20, category: "MED" },
+    { id: 21, team: "IlI_Stellar.Squad_IlI", position: 21, category: "ED" },
+    { id: 22, team: "Team Glycon", position: 22, category: "ED" },
+    { id: 23, team: "404 Brain Not Found", position: 23, category: "MED" },
+    { id: 24, team: "The Beginners 2.0", position: 24, category: "BLOCKCHAIN" },
+    { id: 25, team: "Full Stack Force", position: 25, category: "MED" },
+    { id: 26, team: "404_forbidden", position: 26, category: "BLOCKCHAIN" },
+    { id: 27, team: "Hackoholics", position: 27, category: "MED" }
 ];
+
 
 const rejectedTeams = [
     "Legions",
@@ -240,7 +248,7 @@ function App() {
         : hackathonEntries.filter(entry => entry.category === activeCategory);
 
     // Handle category change with explicit function
-    const handleCategoryChange = (category : string) => {
+    const handleCategoryChange = (category: string) => {
         console.log('Setting category to:', category);
         setActiveCategory(category);
     };
@@ -295,11 +303,10 @@ function App() {
                                 onClick={() => handleCategoryChange(category)}
                                 type="button"
                                 aria-pressed={activeCategory === category}
-                                className={`px-3 py-1 rounded-full text-sm transition-all duration-200 relative z-20 cursor-pointer ${
-                                    activeCategory === category
+                                className={`px-3 py-1 rounded-full text-sm transition-all duration-200 relative z-20 cursor-pointer ${activeCategory === category
                                         ? 'bg-cyan-600 text-white font-medium'
                                         : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
-                                }`}
+                                    }`}
                             >
                                 {category === 'all' ? 'All Categories' : category}
                             </button>
@@ -308,26 +315,18 @@ function App() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {filteredEntries.map(entry => (
+
                             <div
                                 key={entry.id}
-                                className={`bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 ${entry.position <= 3 ? `ring-2 ${entry.position === 1 ? 'ring-yellow-500' :
-                                    entry.position === 2 ? 'ring-blue-500' :
-                                        'ring-green-500'
-                                    }` : 'hover:border-cyan-700'
-                                    }`}
+                                className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-cyan-700"
                             >
                                 <div className="h-24 bg-gray-700 relative overflow-hidden">
                                     <div className="absolute inset-0 flex items-center justify-center text-4xl">
-                                        {entry.position <= 3 ? ['🥇', '🥈', '🥉'][entry.position - 1] : '💻'}
+                                        💻
                                     </div>
-                                    {entry.position <= 10 && (
-                                        <div className={`absolute top-2 right-2 rounded-full px-2 py-0.5 text-xs font-bold ${entry.position <= 3
-                                            ? ['bg-yellow-500', 'bg-blue-500', 'bg-green-500'][entry.position - 1]
-                                            : 'bg-purple-600'
-                                            }`}>
-                                            #{entry.position}
-                                        </div>
-                                    )}
+                                    <div className="absolute top-2 right-2 rounded-full px-2 py-0.5 text-xs font-bold bg-purple-600">
+                                        #{entry.position}
+                                    </div>
                                 </div>
                                 <div className="p-4">
                                     <h3 className="font-bold mb-2 text-lg">{entry.team}</h3>
@@ -335,14 +334,45 @@ function App() {
                                         <span className="inline-block text-xs bg-gray-700 text-cyan-300 rounded-full px-3 py-1">
                                             {entry.category}
                                         </span>
-                                        {entry.position > 10 && (
-                                            <span className="text-xs text-gray-400">
-                                                #{entry.position}
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
                             </div>
+                            // <div
+                            //     key={entry.id}
+                            //     className={`bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 ${entry.position <= 3 ? `ring-2 ${entry.position === 1 ? 'ring-yellow-500' :
+                            //         entry.position === 2 ? 'ring-blue-500' :
+                            //             'ring-green-500'
+                            //         }` : 'hover:border-cyan-700'
+                            //         }`}
+                            // >
+                            //     <div className="h-24 bg-gray-700 relative overflow-hidden">
+                            //         <div className="absolute inset-0 flex items-center justify-center text-4xl">
+
+                            //             {entry.position <= 3 ? ['🥇', '🥈', '🥉'][entry.position - 1] : '💻'}
+                            //         </div>
+                            //         {entry.position <= 10 && (
+                            //             <div className={`absolute top-2 right-2 rounded-full px-2 py-0.5 text-xs font-bold ${entry.position <= 3
+                            //                 ? ['bg-yellow-500', 'bg-blue-500', 'bg-green-500'][entry.position - 1]
+                            //                 : 'bg-purple-600'
+                            //                 }`}>
+                            //                 #{entry.position}
+                            //             </div>
+                            //         )}
+                            //     </div>
+                            //     <div className="p-4">
+                            //         <h3 className="font-bold mb-2 text-lg">{entry.team}</h3>
+                            //         <div className="flex justify-between items-center">
+                            //             <span className="inline-block text-xs bg-gray-700 text-cyan-300 rounded-full px-3 py-1">
+                            //                 {entry.category}
+                            //             </span>
+                            //             {entry.position > 10 && (
+                            //                 <span className="text-xs text-gray-400">
+                            //                     #{entry.position}
+                            //                 </span>
+                            //             )}
+                            //         </div>
+                            //     </div>
+                            // </div>
                         ))}
                     </div>
                 </div>
