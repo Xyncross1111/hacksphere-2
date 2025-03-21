@@ -8,7 +8,7 @@ const hackathonEntries = [
   { id: 2, team: "Team Conquerors", position: 2, category: "BLOCKCHAIN" },
   { id: 3, team: "Sozo", position: 3, category: "ED" },
   { id: 4, team: "GCOEY", position: 4, category: "ED" },
-  { id: 5, team: "UnderDogs", position: 5, category: "ED" },
+  { id: 5, team: "UnderDogs", position: 5, category: "BLOCKCHAIN" },
   { id: 6, team: "Apophis", position: 6, category: "ED" },
   { id: 7, team: "SpeadeX", position: 7, category: "MED" },
   { id: 8, team: "MISSION_I_M_POSSIBLE", position: 8, category: "MED" },
