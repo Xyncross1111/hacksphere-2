@@ -32,6 +32,12 @@ const hackathonEntries = [
   { id: 26, team: "Hackoholics", position: 26 },
 ];
 
+const winners = [
+  { id: 1, team: "Revealing", category : "Revealing" },
+  { id: 2, team: "Revealing", category : "Revealing" },
+  { id: 3, team: "Revealing", category : "Revealing" },
+]
+
 const rejectedTeams = [
   "Legions",
   "MISSION_I_M_POSSIBLE",
@@ -275,6 +281,71 @@ function App() {
             teams pushing the boundaries of technology.
           </p>
         </header>
+
+        <section className="mb-16">
+        <div className="relative">
+          <h2 className="text-3xl font-bold mb-10 text-center">
+            <span className="border-b-2 border-cyan-500 pb-2 px-4">🏆 Winners 🏆</span>
+          </h2>
+          
+          <div className="flex flex-col md:flex-row justify-center items-end gap-4 md:gap-8">
+            {/* 2nd Place */}
+            <div className="w-full md:w-1/4 order-2 md:order-1">
+              <div className="h-16 bg-blue-600 bg-opacity-20 flex items-center justify-center relative">
+                <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-t-lg font-bold">
+                  2nd Place
+                </span>
+                <span className="text-3xl">🥈</span>
+              </div>
+              <div className="bg-gray-800 border-2 border-blue-500 p-5 rounded-b-lg shadow-lg shadow-blue-900/30">
+                <h3 className="text-xl font-bold mb-1 text-blue-300">{winners[1]?.team}</h3>
+                {/* <p className="text-sm text-gray-300 mb-2">by {winners[1]?.team}</p> */}
+                {/* <p className="text-sm">{winners[1]?.description}</p> */}
+                <span className="inline-block mt-3 text-xs bg-blue-900 text-blue-200 rounded-full px-3 py-1">
+                  {winners[1]?.category}
+                </span>
+              </div>
+            </div>
+            
+            {/* 1st Place */}
+            <div className="w-full md:w-1/3 order-1 md:order-2 mb-8 md:mb-0">
+              <div className="h-24 bg-yellow-600 bg-opacity-20 flex items-center justify-center relative">
+                <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-yellow-500 text-white px-4 py-1 rounded-t-lg font-bold">
+                  1st Place
+                </span>
+                <span className="text-5xl">🥇</span>
+              </div>
+              <div className="bg-gray-800 border-2 border-yellow-500 p-6 rounded-b-lg shadow-lg shadow-yellow-900/30 relative">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 via-yellow-200 to-yellow-500 animate-pulse"></div>
+                <h3 className="text-2xl font-bold mb-2 text-yellow-300">{winners[0]?.team}</h3>
+                {/* <p className="text-gray-300 mb-3">by {winners[0]?.team}</p> */}
+                {/* <p>{winners[0]?.description}</p> */}
+                <span className="inline-block mt-4 text-xs bg-yellow-900 text-yellow-200 rounded-full px-3 py-1">
+                  {winners[0]?.category}
+                </span>
+              </div>
+            </div>
+            
+            {/* 3rd Place */}
+            <div className="w-full md:w-1/4 order-3">
+              <div className="h-10 bg-green-600 bg-opacity-20 flex items-center justify-center relative">
+                <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-t-lg font-bold">
+                  3rd Place
+                </span>
+                <span className="text-2xl">🥉</span>
+              </div>
+              <div className="bg-gray-800 border-2 border-green-500 p-5 rounded-b-lg shadow-lg shadow-green-900/30">
+                <h3 className="text-xl font-bold mb-1 text-green-300">{winners[2]?.team}</h3>
+                {/* <p className="text-sm text-gray-300 mb-2">by {winners[2]?.team}</p> */}
+                {/* <p className="text-sm">{winners[2]?.description}</p> */}
+                <span className="inline-block mt-3 text-xs bg-green-900 text-green-200 rounded-full px-3 py-1">
+                  {winners[2]?.category}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
         {/* All Projects */}
         <div>
