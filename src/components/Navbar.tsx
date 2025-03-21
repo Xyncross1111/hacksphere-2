@@ -52,7 +52,7 @@ export const Navbar = () => {
                     ))}
                     <Link
                         href="/result"
-                        className="px-4 py-2 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded-md text-lg tracking-wide shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
+                        className="px-4 py-2 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded-md shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
                         onClick={() => setMenuOpen(false)}
                     >
                         RESULTS
