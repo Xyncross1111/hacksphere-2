@@ -18,20 +18,22 @@ const hackathonEntries = [
     { id: 12, team: "Supa Strikas", position: 12, category: "ED" },
     { id: 13, team: "EduSphere", position: 13, category: "ED" },
     { id: 14, team: "Bro Code", position: 14, category: "ED" },
-    { id: 15, team: "BB", position: 15, category: "ED" },
-    { id: 16, team: "Health+", position: 16, category: "MED" },
-    { id: 17, team: "Runtime Terrors", position: 17, category: "MED" },
-    { id: 18, team: "DevPair", position: 18, category: "MED" },
-    { id: 19, team: "SymbiSparkk", position: 19, category: "ED" },
-    { id: 20, team: "Undefined", position: 20, category: "MED" },
-    { id: 21, team: "IlI_Stellar.Squad_IlI", position: 21, category: "ED" },
-    { id: 22, team: "Team Glycon", position: 22, category: "ED" },
-    { id: 23, team: "404 Brain Not Found", position: 23, category: "MED" },
-    { id: 24, team: "The Beginners 2.0", position: 24, category: "BLOCKCHAIN" },
-    { id: 25, team: "Full Stack Force", position: 25, category: "MED" },
-    { id: 26, team: "404_forbidden", position: 26, category: "BLOCKCHAIN" },
-    { id: 27, team: "Hackoholics", position: 27, category: "MED" }
+    { id: 15, team: "Health+", position: 15, category: "MED" },
+    { id: 16, team: "Runtime Terrors", position: 16, category: "MED" },
+    { id: 17, team: "DevPair", position: 17, category: "MED" },
+    { id: 18, team: "SymbiSparkk", position: 18, category: "ED" },
+    { id: 19, team: "Undefined", position: 19, category: "MED" },
+    { id: 20, team: "IlI_Stellar.Squad_IlI", position: 20, category: "ED" },
+    { id: 21, team: "Team Glycon", position: 21, category: "ED" },
+    { id: 22, team: "404 Brain Not Found", position: 22, category: "MED" },
+    { id: 23, team: "The Beginners 2.0", position: 23, category: "BLOCKCHAIN" },
+    { id: 24, team: "Full Stack Force", position: 24, category: "MED" },
+    { id: 25, team: "404_forbidden", position: 25, category: "BLOCKCHAIN" },
+    { id: 26, team: "Hackoholics", position: 26, category: "MED" }
 ];
+
+
+
 
 
 const rejectedTeams = [
@@ -230,13 +232,10 @@ const rejectedTeams = [
     "Bit by bit",
     "Power Rangers"
 ];
-
 function App() {
-    // Use mounted state to ensure client-side functionality
     const [mounted, setMounted] = useState(false);
     const [activeCategory, setActiveCategory] = useState('all');
 
-    // Ensure component is mounted for client-side interactivity
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -247,7 +246,6 @@ function App() {
         ? hackathonEntries
         : hackathonEntries.filter(entry => entry.category === activeCategory);
 
-    // Handle category change with explicit function
     const handleCategoryChange = (category: string) => {
         console.log('Setting category to:', category);
         setActiveCategory(category);
@@ -315,64 +313,22 @@ function App() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {filteredEntries.map(entry => (
-
                             <div
                                 key={entry.id}
-                                className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-cyan-700"
+                                className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-cyan-700 p-4"
                             >
-                                <div className="h-24 bg-gray-700 relative overflow-hidden">
-                                    <div className="absolute inset-0 flex items-center justify-center text-4xl">
-                                        💻
-                                    </div>
-                                    <div className="absolute top-2 right-2 rounded-full px-2 py-0.5 text-xs font-bold bg-purple-600">
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="font-bold text-lg">{entry.team}</span>
+                                    <span className="rounded-full px-2 py-0.5 text-xs font-bold bg-purple-600">
                                         #{entry.position}
-                                    </div>
+                                    </span>
                                 </div>
-                                <div className="p-4">
-                                    <h3 className="font-bold mb-2 text-lg">{entry.team}</h3>
-                                    <div className="flex justify-between items-center">
-                                        <span className="inline-block text-xs bg-gray-700 text-cyan-300 rounded-full px-3 py-1">
-                                            {entry.category}
-                                        </span>
-                                    </div>
+                                <div>
+                                    <span className="inline-block text-xs bg-gray-700 text-cyan-300 rounded-full px-3 py-1">
+                                        {entry.category}
+                                    </span>
                                 </div>
                             </div>
-                            // <div
-                            //     key={entry.id}
-                            //     className={`bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 ${entry.position <= 3 ? `ring-2 ${entry.position === 1 ? 'ring-yellow-500' :
-                            //         entry.position === 2 ? 'ring-blue-500' :
-                            //             'ring-green-500'
-                            //         }` : 'hover:border-cyan-700'
-                            //         }`}
-                            // >
-                            //     <div className="h-24 bg-gray-700 relative overflow-hidden">
-                            //         <div className="absolute inset-0 flex items-center justify-center text-4xl">
-
-                            //             {entry.position <= 3 ? ['🥇', '🥈', '🥉'][entry.position - 1] : '💻'}
-                            //         </div>
-                            //         {entry.position <= 10 && (
-                            //             <div className={`absolute top-2 right-2 rounded-full px-2 py-0.5 text-xs font-bold ${entry.position <= 3
-                            //                 ? ['bg-yellow-500', 'bg-blue-500', 'bg-green-500'][entry.position - 1]
-                            //                 : 'bg-purple-600'
-                            //                 }`}>
-                            //                 #{entry.position}
-                            //             </div>
-                            //         )}
-                            //     </div>
-                            //     <div className="p-4">
-                            //         <h3 className="font-bold mb-2 text-lg">{entry.team}</h3>
-                            //         <div className="flex justify-between items-center">
-                            //             <span className="inline-block text-xs bg-gray-700 text-cyan-300 rounded-full px-3 py-1">
-                            //                 {entry.category}
-                            //             </span>
-                            //             {entry.position > 10 && (
-                            //                 <span className="text-xs text-gray-400">
-                            //                     #{entry.position}
-                            //                 </span>
-                            //             )}
-                            //         </div>
-                            //     </div>
-                            // </div>
                         ))}
                     </div>
                 </div>
