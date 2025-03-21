@@ -51,13 +51,7 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <Link
-                        href="/result"
-                        className="px-4 py-2 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded-md shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        RESULTS
-                    </Link>
+
                     <Link
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity"
@@ -115,13 +109,7 @@ export const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <Link
-                        href="/result"
-                        className="px-5 py-2 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 rounded text-white font-medium hover:opacity-90 transition-opacity text-center"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        RESULTS
-                    </Link>
+                    
                     <Link
                         href="/swag"
                         className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity text-center"

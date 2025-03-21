@@ -3,10 +3,8 @@ import Link from "next/link";
 import { Rocket, Stars, Orbit } from "lucide-react";
 
 export const Hero = () => {
-
   return (
     <div className="relative min-h-screen space-gradient overflow-hidden">
-
       <div className="absolute inset-0 z-0">
         {[...Array(100)].map((_, i) => (
           <motion.div
@@ -19,12 +17,12 @@ export const Hero = () => {
             }}
             animate={{
               opacity: [0.1, 0.5, 0.1],
-              scale: [1, 1.2, 1]
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: Math.random() * 5 + 2,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
           />
         ))}
@@ -97,20 +95,22 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-300 text-center mt-6 pb-16 max-w-2xl"
         >
-          RBU’s only student-run hackathon, which brings together tech enthusiasts for 8 hours of innovation and problem-solving.
+          RBU’s only student-run hackathon, which brings together tech
+          enthusiasts for 8 hours of innovation and problem-solving.
         </motion.p>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
           <Link
-            href="https://unstop.com/hackathons/hacksphere-20-shri-ramdeobaba-college-of-engineering-and-management-rcoem-nagpur-1427361"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-10 py-4 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded-md text-lg tracking-wide shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
-          >
-            REGISTER NOW
+            href="/result"
+            className="px-4 py-2 bg-gradient-to-r text-2xl max-md:text-xl from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold rounded shadow-lg shadow-purple-900/30 hover:shadow-xl hover:shadow-pink-600/30 transform hover:translate-y-[-2px] transition-all duration-300 border border-purple-400/20"
+         >
+            RESULTS
           </Link>
         </motion.div>
-
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -123,7 +123,9 @@ export const Hero = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="text-gray-400 flex flex-col items-center"
           >
-            <span className="mb-2 opacity-0 sm:opacity-100">Scroll to Launch</span>
+            <span className="mb-2 opacity-0 sm:opacity-100">
+              Scroll to Launch
+            </span>
             <motion.div
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
