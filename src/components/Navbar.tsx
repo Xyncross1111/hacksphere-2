@@ -9,6 +9,7 @@ export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const pathname = usePathname();
     const isSwagPage = pathname === '/swag';
+    const isResultPage = pathname === '/result';
 
     const navItems = [
         { label: 'About', href: '#about' },
@@ -21,7 +22,7 @@ export const Navbar = () => {
     ];
 
     return (
-        <nav className="sticky top-0 font-['Orbitron'] bg-black drop-shadow-lg w-full z-50 shadow-lg">
+        <nav className="sticky top-0 font-['Orbitron'] bg-black drop-shadow-lg w-full  z-50 shadow-lg">
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center">
@@ -44,7 +45,7 @@ export const Navbar = () => {
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
-                            href={isSwagPage ? `/${item.href}` : item.href}
+                            href={(isSwagPage || isResultPage) ? `/${item.href}` : item.href}
                             className="text-gray-300 hover:text-white transition-colors duration-300"
                         >
                             {item.label}
@@ -67,7 +68,7 @@ export const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white "
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label="Toggle menu"
                 >
@@ -100,14 +101,14 @@ export const Navbar = () => {
             {/* Mobile Menu */}
             <div
                 className={`md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md transition-all duration-300 ${
-                    menuOpen ? 'max-h-[500px] py-4' : 'max-h-0 overflow-hidden'
+                    menuOpen ? ' py-4 h-[100dvh]' : 'max-h-0 overflow-hidden'
                 }`}
             >
                 <div className="container mx-auto px-4 flex flex-col space-y-4">
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
-                            href={isSwagPage ? `/${item.href}` : item.href}
+                            href={(isSwagPage || isResultPage) ? `/${item.href}` : item.href}
                             className="text-gray-300 hover:text-white py-2 transition-colors duration-300"
                             onClick={() => setMenuOpen(false)}
                         >
@@ -116,7 +117,7 @@ export const Navbar = () => {
                     ))}
                     <Link
                         href="/result"
-                        className="px-5 py-2 bg-gradient-to-r from-green-500 to-pink-600 rounded-md text-white font-medium hover:opacity-90 transition-opacity text-center"
+                        className="px-5 py-2 bg-gradient-to-r from-[#9d4edd] via-[#ff9daa] to-[#9b5197] hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 rounded text-white font-medium hover:opacity-90 transition-opacity text-center"
                         onClick={() => setMenuOpen(false)}
                     >
                         RESULTS
