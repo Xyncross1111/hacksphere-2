@@ -4,32 +4,32 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const hackathonEntries = [
-  { id: 1, team: "Techtonic Alliance", position: 1, category: "MED" },
-  { id: 2, team: "Team Conquerors", position: 2, category: "BLOCKCHAIN" },
-  { id: 3, team: "Sozo", position: 3, category: "ED" },
-  { id: 4, team: "GCOEY", position: 4, category: "ED" },
-  { id: 5, team: "UnderDogs", position: 5, category: "BLOCKCHAIN" },
-  { id: 6, team: "Apophis", position: 6, category: "ED" },
-  { id: 7, team: "SpeadeX", position: 7, category: "MED" },
-  { id: 8, team: "MISSION_I_M_POSSIBLE", position: 8, category: "MED" },
-  { id: 9, team: "HackSnorlax", position: 9, category: "MED" },
-  { id: 10, team: "DevOcs", position: 10, category: "MED" },
-  { id: 11, team: "Team Zenith", position: 11, category: "ED" },
-  { id: 12, team: "Supa Strikas", position: 12, category: "ED" },
-  { id: 13, team: "EduSphere", position: 13, category: "ED" },
-  { id: 14, team: "Bro Code", position: 14, category: "ED" },
-  { id: 15, team: "Health+", position: 15, category: "MED" },
-  { id: 16, team: "Runtime Terrors", position: 16, category: "MED" },
-  { id: 17, team: "DevPair", position: 17, category: "MED" },
-  { id: 18, team: "SymbiSparkk", position: 18, category: "ED" },
-  { id: 19, team: "Undefined", position: 19, category: "MED" },
-  { id: 20, team: "IlI_Stellar.Squad_IlI", position: 20, category: "ED" },
-  { id: 21, team: "Team Glycon", position: 21, category: "ED" },
-  { id: 22, team: "404 Brain Not Found", position: 22, category: "MED" },
-  { id: 23, team: "The Beginners 2.0", position: 23, category: "BLOCKCHAIN" },
-  { id: 24, team: "Full Stack Force", position: 24, category: "MED" },
-  { id: 25, team: "404_forbidden", position: 25, category: "BLOCKCHAIN" },
-  { id: 26, team: "Hackoholics", position: 26, category: "MED" },
+  { id: 1, team: "Techtonic Alliance", position: 1 },
+  { id: 2, team: "Team Conquerors", position: 2 },
+  { id: 3, team: "Sozo", position: 3 },
+  { id: 4, team: "GCOEY", position: 4 },
+  { id: 5, team: "UnderDogs", position: 5 },
+  { id: 6, team: "Apophis", position: 6 },
+  { id: 7, team: "SpeadeX", position: 7 },
+  { id: 8, team: "MISSION_I_M_POSSIBLE", position: 8 },
+  { id: 9, team: "HackSnorlax", position: 9 },
+  { id: 10, team: "DevOcs", position: 10 },
+  { id: 11, team: "Team Zenith", position: 11 },
+  { id: 12, team: "Supa Strikas", position: 12 },
+  { id: 13, team: "EduSphere", position: 13 },
+  { id: 14, team: "Bro Code", position: 14 },
+  { id: 15, team: "Health+", position: 15 },
+  { id: 16, team: "Runtime Terrors", position: 16 },
+  { id: 17, team: "DevPair", position: 17 },
+  { id: 18, team: "SymbiSparkk", position: 18 },
+  { id: 19, team: "Undefined", position: 19 },
+  { id: 20, team: "IlI_Stellar.Squad_IlI", position: 20 },
+  { id: 21, team: "Team Glycon", position: 21 },
+  { id: 22, team: "404 Brain Not Found", position: 22 },
+  { id: 23, team: "The Beginners 2.0", position: 23 },
+  { id: 24, team: "Full Stack Force", position: 24 },
+  { id: 25, team: "404_forbidden", position: 25 },
+  { id: 26, team: "Hackoholics", position: 26 },
 ];
 
 const rejectedTeams = [
@@ -228,28 +228,13 @@ const rejectedTeams = [
   "Bit by bit",
   "Power Rangers",
 ];
+
 function App() {
   const [mounted, setMounted] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const categories = [
-    "all",
-    ...new Set(hackathonEntries.map((entry) => entry.category)),
-  ];
-
-  const filteredEntries =
-    activeCategory === "all"
-      ? hackathonEntries
-      : hackathonEntries.filter((entry) => entry.category === activeCategory);
-
-  const handleCategoryChange = (category: string) => {
-    console.log("Setting category to:", category);
-    setActiveCategory(category);
-  };
 
   return (
     <section className="space-gradient relative overflow-hidden">
@@ -298,28 +283,13 @@ function App() {
               🚀 Shortlisted Teams 🚀
             </span>
           </h2>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8 relative z-20">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                type="button"
-                aria-pressed={activeCategory === category}
-                className={`px-3 py-1 rounded-full text-sm transition-all duration-200 relative z-20 cursor-pointer ${
-                  activeCategory === category
-                    ? "bg-cyan-600 text-white font-medium"
-                    : "bg-gray-700 hover:bg-gray-600 text-gray-300"
-                }`}
-              >
-                {category === "all" ? "All Categories" : category}
-              </button>
-            ))}
-          </div>
+          
+          <p className="text-center mb-8 text-cyan-100 max-w-3xl mx-auto">
+            The following teams have been selected based on the quality and innovation demonstrated in their submitted presentations across their respective domains of expertise.
+          </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredEntries.map((entry) => (
+            {hackathonEntries.map((entry) => (
               <div
                 key={entry.id}
                 className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-cyan-700 p-4"
@@ -328,11 +298,6 @@ function App() {
                   <span className="font-bold text-lg">{entry.team}</span>
                   <span className="rounded-full px-2 py-0.5 text-xs font-bold bg-purple-600">
                     #{entry.position}
-                  </span>
-                </div>
-                <div>
-                  <span className="inline-block text-xs bg-gray-700 text-cyan-300 rounded-full px-3 py-1">
-                    {entry.category}
                   </span>
                 </div>
               </div>
