@@ -33,7 +33,7 @@ const hackathonEntries = [
 ];
 
 const winners = [
-  { id: 1, team: "GCOEY", category : "Ed Tech" },
+  { id: 1, team: "GCOEY", category : "Edu Tech." },
   { id: 2, team: "EduSphere", category : "Edu Tech." },
   { id: 3, team: "SpeadeX", category : "Health Tech." },
 ]
