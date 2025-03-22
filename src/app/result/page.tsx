@@ -33,9 +33,9 @@ const hackathonEntries = [
 ];
 
 const winners = [
-  { id: 1, team: "Revealing", category : "Revealing" },
-  { id: 2, team: "Revealing", category : "Revealing" },
-  { id: 3, team: "Revealing", category : "Revealing" },
+  { id: 1, team: "GCOEY", category : "Ed Tech" },
+  { id: 2, team: "EduSphere", category : "Edu Tech." },
+  { id: 3, team: "SpeadeX", category : "Health Tech." },
 ]
 
 const rejectedTeams = [
