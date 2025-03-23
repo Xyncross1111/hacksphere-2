@@ -290,7 +290,7 @@ function App() {
           
           <div className="flex flex-col md:flex-row justify-center items-end gap-4 md:gap-8">
             {/* 2nd Place */}
-            <div className="w-full md:w-1/4 order-2 md:order-1">
+            <div className="w-full md:w-1/4 order-2 md:order-1 mb-8 md:mb-0">
               <div className="h-16 bg-blue-600 bg-opacity-20 flex items-center justify-center relative">
                 <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-t-lg font-bold">
                   2nd Place
